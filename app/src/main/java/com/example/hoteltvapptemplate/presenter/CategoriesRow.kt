@@ -1,5 +1,6 @@
 package com.example.hoteltvapptemplate.presenter
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,14 +13,14 @@ import androidx.compose.ui.unit.dp
 import com.example.hoteltvapptemplate.R
 
 @Composable
-fun CategoriesRow() {
+fun CategoriesRow(context: Context) {
     val categories = mutableMapOf(
-        "Tv channels" to R.drawable.tv_channels,
-        "Our services" to R.drawable.our_services,
-        "Weather" to R.drawable.weather,
-        "Hotel info" to R.drawable.hotel_info,
-        "Restaurants" to R.drawable.restaurants,
-        "Rooms" to R.drawable.rooms
+        context.resources.getString(R.string.tv_channels) to R.drawable.tv_channels,
+        context.resources.getString(R.string.our_services) to R.drawable.our_services,
+        context.resources.getString(R.string.weather) to R.drawable.weather,
+        context.resources.getString(R.string.hotel_info) to R.drawable.hotel_info,
+        context.resources.getString(R.string.restaurants) to R.drawable.restaurants,
+        context.resources.getString(R.string.rooms) to R.drawable.rooms
     )
 
     Row(

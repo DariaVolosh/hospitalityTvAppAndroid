@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HotelTVAppTemplate</string>
+    <string name="hotel_image">Hotel image</string>
+    <string name="welcome_to_our_hotel">კეთილი იყოს თქვენი მობრძანება ჩვენს სასტუმროში</string>
+    <string name="we_wish_you_a_pleasant_stay">გისურვებთ სასიამოვნო დასვენებას</string>
+    <string name="current_time">19:20</string>
+    <string name="english_language">English language</string>
+    <string name="georgian_language">Georgian language</string>
+    <string name="date">11/02/2024</string>
+    <string name="tv_channels">სატელევიზიო არხები</string>
+    <string name="our_services">Ჩვენი სერვისები</string>
+    <string name="weather">Ამინდის პროგნოზი</string>
+    <string name="hotel_info">სასტუმროს ინფორმაცია</string>
+    <string name="restaurants">რესტორნები</string>
+    <string name="rooms">ოთახები</string>
+</resources>

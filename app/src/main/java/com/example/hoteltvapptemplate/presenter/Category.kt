@@ -2,22 +2,31 @@ package com.example.hoteltvapptemplate.presenter
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
@@ -29,15 +38,24 @@ fun Category(
     @DrawableRes icon: Int,
     modifier: Modifier
 ) {
+
+    var isHovering by remember { mutableStateOf(false) }
+
     Row(
         modifier = modifier
-            .fillMaxSize(),
+            .background(
+                if (isHovering) MaterialTheme.colorScheme.secondaryContainer
+                else MaterialTheme.colorScheme.primaryContainer
+            ).onFocusChanged {
+                isHovering = it.isFocused
+            }.focusable(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize()
+            modifier = modifier
+                .fillMaxHeight()
         ) {
             Image(
                 painter = painterResource(id = icon),
@@ -50,7 +68,10 @@ fun Category(
                 fontFamily = FontFamily(Font(R.font.nokora_light)),
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 fontSize = TextUnit(17f, TextUnitType.Sp),
-                modifier = Modifier.padding(top = 10.dp),
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .fillMaxWidth(0.8f),
+                textAlign = TextAlign.Center,
             )
         }
 

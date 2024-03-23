@@ -4,4 +4,13 @@
     <string name="welcome_to_our_hotel">Welcome to our hotel</string>
     <string name="we_wish_you_a_pleasant_stay">We wish you a pleasant stay</string>
     <string name="current_time">19:20</string>
+    <string name="english_language">English language</string>
+    <string name="georgian_language">Georgian language</string>
+    <string name="date">11/02/2024</string>
+    <string name="tv_channels">Tv channels</string>
+    <string name="our_services">Our services</string>
+    <string name="weather">Weather</string>
+    <string name="hotel_info">Hotel info</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="rooms">Rooms</string>
 </resources>
