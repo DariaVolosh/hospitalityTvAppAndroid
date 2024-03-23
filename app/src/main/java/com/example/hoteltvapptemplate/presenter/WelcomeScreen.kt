@@ -1,14 +1,12 @@
 package com.example.hoteltvapptemplate.presenter
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -35,6 +33,7 @@ fun WelcomeScreen() {
             md_theme_transparent
         )
     )
+
     Box {
         Image(
             painter = painterResource(R.drawable.hotel_image),
@@ -93,14 +92,7 @@ fun WelcomeScreen() {
                 }
             }
 
-            Row(
-                modifier = Modifier
-                    .height(150.dp)
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-            ) {
-
-            }
+            CategoriesRow()
         }
     }
 }
