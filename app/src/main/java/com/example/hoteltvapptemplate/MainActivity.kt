@@ -9,26 +9,34 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
 import com.example.hoteltvapptemplate.presenter.WelcomeScreen
+import com.example.hoteltvapptemplate.presenter.WelcomeScreenViewModel
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+    @Inject lateinit var welcomeScreenViewModel: WelcomeScreenViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (application as MyApplication).appComponent.inject(this)
         setContent {
             TvAppTheme {
-                MainScreen()
+                MainScreen(welcomeScreenViewModel)
             }
         }
     }
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    welcomeScreenViewModel: WelcomeScreenViewModel
+) {
     NavHost(
         navController = rememberNavController(),
         startDestination = "welcomeScreen"
     ) {
         composable("welcomeScreen") {
-            WelcomeScreen()
+            WelcomeScreen(welcomeScreenViewModel)
         }
     }
 }

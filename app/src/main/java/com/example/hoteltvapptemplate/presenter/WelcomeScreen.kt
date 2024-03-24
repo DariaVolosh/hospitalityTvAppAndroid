@@ -2,8 +2,6 @@ package com.example.hoteltvapptemplate.presenter
 
 import android.content.Context
 import android.content.res.Configuration
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -44,9 +43,10 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
     return oldContext.createConfigurationContext(config)
 }
 
-@RequiresApi(Build.VERSION_CODES.N)
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    welcomeScreenViewModel: WelcomeScreenViewModel
+) {
     val brush = Brush.verticalGradient(
         listOf(
             MaterialTheme.colorScheme.primaryContainer,
@@ -56,6 +56,9 @@ fun WelcomeScreen() {
 
     val curr = LocalContext.current
     var updatedContext by remember { mutableStateOf(curr) }
+
+    val date = welcomeScreenViewModel.date.observeAsState()
+    val time = welcomeScreenViewModel.time.observeAsState()
 
     Box {
         Image(
@@ -128,13 +131,13 @@ fun WelcomeScreen() {
                 Column {
                     Text(
                         fontSize = 35.sp,
-                        text = stringResource(R.string.current_time),
+                        text = time.value ?: "",
                         fontFamily = FontFamily(Font(R.font.nokora_light)),
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                     Text(
                         fontSize = 20.sp,
-                        text = stringResource(R.string.date),
+                        text = date.value ?: "",
                         fontFamily = FontFamily(Font(R.font.nokora_light)),
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
