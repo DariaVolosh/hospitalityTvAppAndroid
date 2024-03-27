@@ -4,9 +4,12 @@ import android.app.Application
 import android.content.Context
 import com.example.hoteltvapptemplate.di.ApplicationComponent
 import com.example.hoteltvapptemplate.di.DaggerApplicationComponent
+import javax.inject.Inject
 
-class MyApplication: Application() {
-    val appComponent: ApplicationComponent = DaggerApplicationComponent.create()
+class MyApplication @Inject constructor(): Application() {
+    val appComponent: ApplicationComponent by lazy {
+        DaggerApplicationComponent.factory().passContext(applicationContext)
+    }
     private lateinit var appContext: Context
     override fun onCreate() {
         super.onCreate()

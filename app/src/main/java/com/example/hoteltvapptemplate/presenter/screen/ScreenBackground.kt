@@ -1,4 +1,4 @@
-package com.example.hoteltvapptemplate.presenter
+package com.example.hoteltvapptemplate.presenter.screen
 
 import android.content.Context
 import androidx.compose.foundation.Image
@@ -26,13 +26,17 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
+import com.example.hoteltvapptemplate.presenter.categories.CategoriesRow
 import com.example.hoteltvapptemplate.ui.theme.md_theme_transparent
 
 @Composable
 fun ScreenBackground(
     screenViewModel: ScreenViewModel,
+    headerText: String,
+    navigateToCategory: (String) -> Unit,
     updatedContext: Context,
-    composable: @Composable () -> Unit
+    mainContent: @Composable () -> Unit,
+    headerAdditions: @Composable () -> Unit
 ) {
     val date = screenViewModel.date.observeAsState()
     val time = screenViewModel.time.observeAsState()
@@ -73,13 +77,13 @@ fun ScreenBackground(
                     Text(
                         modifier = Modifier.fillMaxWidth(0.5f),
                         fontSize = 40.sp,
-                        text = updatedContext.resources.getString(R.string.welcome_to_our_hotel),
+                        text = headerText,
                         fontFamily = FontFamily(Font(R.font.nokoro_regular)),
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                         lineHeight = TextUnit(50f, TextUnitType.Sp)
                     )
 
-                    composable()
+                    headerAdditions()
                 }
 
                 Column {
@@ -98,7 +102,16 @@ fun ScreenBackground(
                 }
             }
 
-            CategoriesRow(updatedContext)
+            mainContent()
+
+            CategoriesRow(
+                updatedContext,
+                screenViewModel::getCategoriesNames,
+                screenViewModel::mapCategoryIcon,
+                screenViewModel::mapScreenName,
+                screenViewModel::setMapperContext,
+                navigateToCategory
+            )
         }
     }
 }

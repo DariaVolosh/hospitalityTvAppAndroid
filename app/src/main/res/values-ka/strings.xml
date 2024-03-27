@@ -14,4 +14,11 @@
     <string name="hotel_info">სასტუმროს ინფორმაცია</string>
     <string name="restaurants">რესტორნები</string>
     <string name="rooms">ოთახები</string>
+    <string name="variety_of_services">ჩვენ გთავაზობთ სხვადასხვა სახის მომსახურებას</string>
+    <string name="tv_channels_screen">tvChannelsScreen</string>
+    <string name="services_screen">servicesScreen</string>
+    <string name="weather_screen">weatherScreen</string>
+    <string name="hotel_info_screen">hotelInfoScreen</string>
+    <string name="restaurants_screen">restaurantsScreen</string>
+    <string name="rooms_screen">roomsScreen</string>
 </resources>

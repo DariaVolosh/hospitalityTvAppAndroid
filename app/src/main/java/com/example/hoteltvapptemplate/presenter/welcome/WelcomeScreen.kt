@@ -2,7 +2,6 @@ package com.example.hoteltvapptemplate.presenter.welcome
 
 import android.content.Context
 import android.content.res.Configuration
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,8 +23,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
-import com.example.hoteltvapptemplate.presenter.ScreenBackground
-import com.example.hoteltvapptemplate.presenter.ScreenViewModel
+import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
+import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import java.util.Locale
 
 fun setLocale(locale: Locale, oldContext: Context): Context {
@@ -38,16 +36,19 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 @Composable
 fun WelcomeScreen(
     screenViewModel: ScreenViewModel,
+    navigateToCategory: (String) -> Unit,
     updateContext: (Context) -> Unit
 ) {
     val curr = LocalContext.current
     var updatedContext by remember { mutableStateOf(curr) }
 
-    LaunchedEffect(key1 = updateContext) {
-        Log.i("LOL", updatedContext.toString())
-    }
-
-    ScreenBackground(screenViewModel = screenViewModel, updatedContext) {
+    ScreenBackground(
+        screenViewModel,
+        updatedContext.resources.getString(R.string.welcome_to_our_hotel),
+        navigateToCategory,
+        updatedContext,
+        {}
+    ) {
         Text(
             modifier = Modifier.padding(top = 10.dp),
             fontSize = 25.sp,

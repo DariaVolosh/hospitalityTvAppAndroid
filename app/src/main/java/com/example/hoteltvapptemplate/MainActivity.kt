@@ -1,16 +1,18 @@
 package com.example.hoteltvapptemplate
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
+import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
+import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
-import com.example.hoteltvapptemplate.presenter.ScreenViewModel
+import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -31,17 +33,39 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+
+fun navigateToCategory(
+    screenName: String,
+    navController: NavController,
+) {
+    navController.navigate(screenName)
+}
+
 @Composable
 fun MainScreen(
     screenViewModel: ScreenViewModel,
     updateContext: (Context) -> Unit
 ) {
+    val navController = rememberNavController()
     NavHost(
-        navController = rememberNavController(),
+        navController = navController,
         startDestination = "welcomeScreen"
     ) {
         composable("welcomeScreen") {
-            WelcomeScreen(screenViewModel, updateContext)
+            WelcomeScreen(
+                screenViewModel,
+                {
+                    navigateToCategory(it, navController)
+                }
+            ) {
+                updateContext(it)
+            }
+        }
+
+        composable("servicesScreen") {
+            ServicesScreen(screenViewModel) {
+                navigateToCategory(it, navController)
+            }
         }
     }
 }

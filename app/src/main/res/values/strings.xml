@@ -13,4 +13,11 @@
     <string name="hotel_info">Hotel info</string>
     <string name="restaurants">Restaurants</string>
     <string name="rooms">Rooms</string>
+    <string name="variety_of_services">We provide a variety of services</string>
+    <string name="tv_channels_screen">tvChannelsScreen</string>
+    <string name="services_screen">servicesScreen</string>
+    <string name="weather_screen">weatherScreen</string>
+    <string name="hotel_info_screen">hotelInfoScreen</string>
+    <string name="restaurants_screen">restaurantsScreen</string>
+    <string name="rooms_screen">roomsScreen</string>
 </resources>

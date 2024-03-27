@@ -1,8 +1,9 @@
-package com.example.hoteltvapptemplate.presenter
+package com.example.hoteltvapptemplate.presenter.categories
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,7 +37,8 @@ import com.example.hoteltvapptemplate.R
 fun Category(
     name: String,
     @DrawableRes icon: Int,
-    modifier: Modifier
+    modifier: Modifier,
+    navigateToCategory: () -> Unit
 ) {
 
     var isHovering by remember { mutableStateOf(false) }
@@ -48,7 +50,9 @@ fun Category(
                 else MaterialTheme.colorScheme.primaryContainer
             ).onFocusChanged {
                 isHovering = it.isFocused
-            }.focusable(),
+            }
+            .focusable()
+            .clickable { navigateToCategory() },
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Column(
