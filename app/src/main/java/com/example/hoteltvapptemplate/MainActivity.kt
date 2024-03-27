@@ -1,5 +1,6 @@
 package com.example.hoteltvapptemplate
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -8,20 +9,23 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
-import com.example.hoteltvapptemplate.presenter.WelcomeScreen
-import com.example.hoteltvapptemplate.presenter.WelcomeScreenViewModel
+import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
+import com.example.hoteltvapptemplate.presenter.ScreenViewModel
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    @Inject lateinit var welcomeScreenViewModel: WelcomeScreenViewModel
+    @Inject lateinit var screenViewModel: ScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val application = application as MyApplication
 
-        (application as MyApplication).appComponent.inject(this)
+        application.appComponent.inject(this)
         setContent {
             TvAppTheme {
-                MainScreen(welcomeScreenViewModel)
+                MainScreen(screenViewModel) { context ->
+                    application.updateContext(context)
+                }
             }
         }
     }
@@ -29,14 +33,15 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun MainScreen(
-    welcomeScreenViewModel: WelcomeScreenViewModel
+    screenViewModel: ScreenViewModel,
+    updateContext: (Context) -> Unit
 ) {
     NavHost(
         navController = rememberNavController(),
         startDestination = "welcomeScreen"
     ) {
         composable("welcomeScreen") {
-            WelcomeScreen(welcomeScreenViewModel)
+            WelcomeScreen(screenViewModel, updateContext)
         }
     }
 }

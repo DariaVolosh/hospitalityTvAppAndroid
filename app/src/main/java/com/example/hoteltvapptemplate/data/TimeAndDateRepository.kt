@@ -15,6 +15,7 @@ class TimeAndDateRepository @Inject constructor() {
     private val trueTime = TrueTimeImpl()
 
     fun getTimeAndDateFlow(): Flow<Pair<String, String>> = flow {
+        trueTime.sync()
         var oldTime = ""
         while (true) {
             val trueTime = trueTime.now()

@@ -7,7 +7,7 @@ import com.example.hoteltvapptemplate.useCases.GetTimeAndDateUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class WelcomeScreenViewModel @Inject constructor(
+class ScreenViewModel @Inject constructor(
     private val getTimeAndDateUseCase: GetTimeAndDateUseCase
 ): ViewModel() {
     val time = MutableLiveData("")
