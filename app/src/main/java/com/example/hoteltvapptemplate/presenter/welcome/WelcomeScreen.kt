@@ -39,7 +39,7 @@ fun WelcomeScreen(
     navigateToCategory: (String) -> Unit,
     updateContext: (Context) -> Unit
 ) {
-    val curr = LocalContext.current
+    val curr = LocalContext.current.applicationContext
     var updatedContext by remember { mutableStateOf(curr) }
 
     ScreenBackground(

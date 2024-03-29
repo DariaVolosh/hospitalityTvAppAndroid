@@ -8,7 +8,9 @@ import com.example.hoteltvapptemplate.presenter.mappers.CategoriesMapper
 import com.example.hoteltvapptemplate.useCases.GetTimeAndDateUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class ScreenViewModel @Inject constructor(
     private val getTimeAndDateUseCase: GetTimeAndDateUseCase,
     private val categoriesMapper: CategoriesMapper

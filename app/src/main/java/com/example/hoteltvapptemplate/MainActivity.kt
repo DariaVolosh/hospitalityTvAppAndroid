@@ -25,8 +25,10 @@ class MainActivity : AppCompatActivity() {
         application.appComponent.inject(this)
         setContent {
             TvAppTheme {
-                MainScreen(screenViewModel) { context ->
+                MainScreen(screenViewModel, { context ->
                     application.updateContext(context)
+                }) {
+                    application.getContext()
                 }
             }
         }
@@ -44,7 +46,8 @@ fun navigateToCategory(
 @Composable
 fun MainScreen(
     screenViewModel: ScreenViewModel,
-    updateContext: (Context) -> Unit
+    updateContext: (Context) -> Unit,
+    getContext: () -> Context
 ) {
     val navController = rememberNavController()
     NavHost(
@@ -63,9 +66,9 @@ fun MainScreen(
         }
 
         composable("servicesScreen") {
-            ServicesScreen(screenViewModel) {
+            ServicesScreen(screenViewModel, {
                 navigateToCategory(it, navController)
-            }
+            }, getContext)
         }
     }
 }

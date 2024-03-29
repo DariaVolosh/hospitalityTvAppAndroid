@@ -3,14 +3,16 @@ package com.example.hoteltvapptemplate.presenter.mappers
 import android.content.Context
 import com.example.hoteltvapptemplate.R
 import javax.inject.Inject
+import javax.inject.Singleton
 
+
+@Singleton
 class CategoriesMapper @Inject constructor(
     private var context: Context
 ) {
     private var categoryNamesMapper = mapOf<String, Pair<Int,String>>()
 
     private fun updateNamesMapper() {
-
         // mapper from category name to corresponding icon and composable screen name for navigation
         val newMapper = mapOf(
             context.resources.getString(R.string.tv_channels) to Pair(
@@ -42,7 +44,9 @@ class CategoriesMapper @Inject constructor(
     }
 
     fun mapScreenName(categoryName: String) = categoryNamesMapper[categoryName]?.second ?: ""
-    fun mapIcon(categoryName: String) = categoryNamesMapper[categoryName]?.first ?: 0
+    fun mapIcon(categoryName: String): Int  {
+        return categoryNamesMapper[categoryName]?.first ?: 0
+    }
     fun getCategoriesNames() = categoryNamesMapper.keys
     fun setContext(newContext: Context) {
         context = newContext

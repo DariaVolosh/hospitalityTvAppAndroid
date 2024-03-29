@@ -19,4 +19,6 @@ class MyApplication @Inject constructor(): Application() {
     fun updateContext(newContext: Context) {
         appContext = newContext
     }
+
+    fun getContext() = appContext
 }

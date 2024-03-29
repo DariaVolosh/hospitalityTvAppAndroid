@@ -27,13 +27,14 @@ fun CategoriesRow(
 ) {
 
     var currentNames by remember {
-        mutableStateOf(getCategoriesNames())
+        mutableStateOf<Set<String>>(setOf())
     }
 
     LaunchedEffect(key1 = updatedContext) {
         setContext(updatedContext)
         currentNames = getCategoriesNames()
     }
+
 
     Row(
         modifier = Modifier
