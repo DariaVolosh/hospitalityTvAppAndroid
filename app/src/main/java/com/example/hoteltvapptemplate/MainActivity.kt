@@ -9,14 +9,18 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
+import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     @Inject lateinit var screenViewModel: ScreenViewModel
+    @Inject lateinit var categoriesViewModel: CategoriesViewModel
+    @Inject lateinit var servicesViewModel: ServicesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         application.appComponent.inject(this)
         setContent {
             TvAppTheme {
-                MainScreen(screenViewModel, { context ->
+                MainScreen(screenViewModel, categoriesViewModel, servicesViewModel, { context ->
                     application.updateContext(context)
                 }) {
                     application.getContext()
@@ -46,6 +50,8 @@ fun navigateToCategory(
 @Composable
 fun MainScreen(
     screenViewModel: ScreenViewModel,
+    categoriesViewModel: CategoriesViewModel,
+    servicesViewModel: ServicesViewModel,
     updateContext: (Context) -> Unit,
     getContext: () -> Context
 ) {
@@ -56,6 +62,7 @@ fun MainScreen(
     ) {
         composable("welcomeScreen") {
             WelcomeScreen(
+                categoriesViewModel,
                 screenViewModel,
                 {
                     navigateToCategory(it, navController)
@@ -66,7 +73,7 @@ fun MainScreen(
         }
 
         composable("servicesScreen") {
-            ServicesScreen(screenViewModel, {
+            ServicesScreen(screenViewModel, categoriesViewModel, servicesViewModel, {
                 navigateToCategory(it, navController)
             }, getContext)
         }

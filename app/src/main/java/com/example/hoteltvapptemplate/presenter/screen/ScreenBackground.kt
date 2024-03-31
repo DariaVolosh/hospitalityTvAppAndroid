@@ -27,15 +27,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesRow
+import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.ui.theme.md_theme_transparent
 
 @Composable
 fun ScreenBackground(
     screenViewModel: ScreenViewModel,
+    categoriesViewModel: CategoriesViewModel,
     headerText: String,
     navigateToCategory: (String) -> Unit,
     updatedContext: Context,
-    mainContent: @Composable () -> Unit,
+    mainContent: @Composable (modifier: Modifier) -> Unit,
     headerAdditions: @Composable () -> Unit
 ) {
     val date = screenViewModel.date.observeAsState()
@@ -102,14 +104,12 @@ fun ScreenBackground(
                 }
             }
 
-            mainContent()
+            mainContent(Modifier.weight(1f))
 
             CategoriesRow(
                 updatedContext,
-                screenViewModel::getCategoriesNames,
-                screenViewModel::mapCategoryIcon,
-                screenViewModel::mapScreenName,
-                screenViewModel::setMapperContext,
+                screenViewModel,
+                categoriesViewModel,
                 navigateToCategory
             )
         }

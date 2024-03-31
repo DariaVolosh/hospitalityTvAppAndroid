@@ -21,4 +21,22 @@
     <string name="hotel_info_screen">hotelInfoScreen</string>
     <string name="restaurants_screen">restaurantsScreen</string>
     <string name="rooms_screen">roomsScreen</string>
+
+    <string name="accommodation_services">Accommodation services</string>
+    <string name="room_booking">Room booking/reservation</string>
+    <string name="check_in">Check-in and check-out assistance</string>
+    <string name="room_cleaning">Room cleaning and housekeeping</string>
+    <string name="laundry">Laundry and dry cleaning services</string>
+
+    <string name="dining_services">Dining and catering services</string>
+    <string name="restaurants_and_cafes">Restaurants, cafes, and bars</string>
+    <string name="room_service">Room service</string>
+    <string name="breakfast">Breakfast buffet or continental breakfast</string>
+    <string name="catering">Catering for events and conferences</string>
+
+    <string name="recreational_services">Recreational and Entertainment Services</string>
+    <string name="swimming">Swimming pool</string>
+    <string name="fitness">Fitness center or gym</string>
+    <string name="spa">Spa and wellness center</string>
+    <string name="sauna">Sauna, steam room, and hot tub</string>
 </resources>

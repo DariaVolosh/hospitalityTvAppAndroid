@@ -67,21 +67,25 @@ fun Category(
                 modifier = Modifier.size(40.dp)
             )
 
-            Text(
-                text = name,
-                fontFamily = FontFamily(Font(R.font.nokora_light)),
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                fontSize = TextUnit(17f, TextUnitType.Sp),
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .fillMaxWidth(0.8f),
-                textAlign = TextAlign.Center,
-            )
+            if (name != "") {
+                Text(
+                    text = name,
+                    fontFamily = FontFamily(Font(R.font.nokora_light)),
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    fontSize = TextUnit(17f, TextUnitType.Sp),
+                    modifier = Modifier
+                        .padding(top = 10.dp)
+                        .fillMaxWidth(0.8f),
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
 
-        VerticalDivider(
-            thickness = 1.dp,
-            color = Color.White
-        )
+        if (name != "") {
+            VerticalDivider(
+                thickness = 1.dp,
+                color = Color.White
+            )
+        }
     }
 }

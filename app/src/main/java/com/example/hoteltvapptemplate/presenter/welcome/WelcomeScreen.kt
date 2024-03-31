@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
+import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import java.util.Locale
@@ -35,15 +37,23 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 
 @Composable
 fun WelcomeScreen(
+    categoriesViewModel: CategoriesViewModel,
     screenViewModel: ScreenViewModel,
     navigateToCategory: (String) -> Unit,
     updateContext: (Context) -> Unit
 ) {
     val curr = LocalContext.current.applicationContext
     var updatedContext by remember { mutableStateOf(curr) }
+    
+    DisposableEffect(Unit) {
+        onDispose {
+            screenViewModel.isWelcomeScreen.value = false
+        }
+    }
 
     ScreenBackground(
         screenViewModel,
+        categoriesViewModel,
         updatedContext.resources.getString(R.string.welcome_to_our_hotel),
         navigateToCategory,
         updatedContext,
