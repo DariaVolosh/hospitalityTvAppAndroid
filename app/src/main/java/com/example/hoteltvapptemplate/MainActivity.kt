@@ -10,6 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
+import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoScreen
+import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     @Inject lateinit var screenViewModel: ScreenViewModel
     @Inject lateinit var categoriesViewModel: CategoriesViewModel
     @Inject lateinit var servicesViewModel: ServicesViewModel
+    @Inject lateinit var hotelInfoViewModel: HotelInfoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +32,12 @@ class MainActivity : AppCompatActivity() {
         application.appComponent.inject(this)
         setContent {
             TvAppTheme {
-                MainScreen(screenViewModel, categoriesViewModel, servicesViewModel, { context ->
-                    application.updateContext(context)
-                }) {
+                MainScreen(
+                    screenViewModel,
+                    categoriesViewModel,
+                    servicesViewModel,
+                    hotelInfoViewModel,
+                    { context -> application.updateContext(context)}) {
                     application.getContext()
                 }
             }
@@ -52,6 +58,7 @@ fun MainScreen(
     screenViewModel: ScreenViewModel,
     categoriesViewModel: CategoriesViewModel,
     servicesViewModel: ServicesViewModel,
+    hotelInfoViewModel: HotelInfoViewModel,
     updateContext: (Context) -> Unit,
     getContext: () -> Context
 ) {
@@ -64,18 +71,26 @@ fun MainScreen(
             WelcomeScreen(
                 categoriesViewModel,
                 screenViewModel,
-                {
-                    navigateToCategory(it, navController)
-                }
-            ) {
-                updateContext(it)
-            }
+                { navigateToCategory(it, navController) }
+            ) { updateContext(it) }
         }
 
         composable("servicesScreen") {
-            ServicesScreen(screenViewModel, categoriesViewModel, servicesViewModel, {
-                navigateToCategory(it, navController)
-            }, getContext)
+            ServicesScreen(
+                screenViewModel,
+                categoriesViewModel,
+                servicesViewModel,
+                { navigateToCategory(it, navController) },
+                getContext
+            )
+        }
+
+        composable("hotelInfoScreen") {
+            HotelInfoScreen(
+                hotelInfoViewModel,
+                { navigateToCategory(it, navController) },
+                getContext
+            )
         }
     }
 }

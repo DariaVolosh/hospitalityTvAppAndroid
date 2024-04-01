@@ -14,26 +14,26 @@ class ServicesMapper @Inject constructor(
     override fun updateNamesMapper() {
         // mapper from service name to a list of specific related services list
         val newMapper = mapOf(
-            appContext.resources.getString(R.string.accommodation_services) to
+            getString(R.string.accommodation_services) to
                 listOf(
-                    appContext.resources.getString(R.string.room_booking),
-                    appContext.resources.getString(R.string.check_in),
-                    appContext.resources.getString(R.string.room_cleaning),
-                    appContext.resources.getString(R.string.laundry)
+                    getString(R.string.room_booking),
+                    getString(R.string.check_in),
+                    getString(R.string.room_cleaning),
+                    getString(R.string.laundry)
                 ),
-            appContext.resources.getString(R.string.dining_services) to
+            getString(R.string.dining_services )to
                     listOf(
-                        appContext.resources.getString(R.string.restaurants_and_cafes),
-                        appContext.resources.getString(R.string.room_service),
-                        appContext.resources.getString(R.string.breakfast),
-                        appContext.resources.getString(R.string.catering)
+                        getString(R.string.restaurants_and_cafes),
+                        getString(R.string.room_service),
+                        getString(R.string.breakfast),
+                        getString(R.string.catering)
                     ),
-            appContext.resources.getString(R.string.recreational_services) to
+            getString(R.string.recreational_services) to
                     listOf(
-                        appContext.resources.getString(R.string.swimming),
-                        appContext.resources.getString(R.string.fitness),
-                        appContext.resources.getString(R.string.spa),
-                        appContext.resources.getString(R.string.sauna)
+                        getString(R.string.swimming),
+                        getString(R.string.fitness),
+                        getString(R.string.spa),
+                        getString(R.string.sauna)
                     ),
         )
 

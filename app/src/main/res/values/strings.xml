@@ -38,4 +38,19 @@
     <string name="fitness">Fitness center or gym</string>
     <string name="spa">Spa and wellness center</string>
     <string name="sauna">Sauna, steam room, and hot tub</string>
+
+    <string name="welcome_to_hotel">Welcome to [Hotel Name]</string>
+    <string name="welcome_to_hotel_text">Nestled in the heart of [City or Location], [Hotel Name] stands as a beacon of luxury and hospitality. Our story began over [Number of Years] years ago when our founders envisioned a haven where travelers could find solace amidst the bustling city life.</string>
+
+    <string name="our_story">Our story</string>
+    <string name="our_story_text">[Hotel Name] was founded in [Year] by [Founder\'s Name], a visionary entrepreneur with a passion for hospitality. From humble beginnings as a small inn, we have grown into a prestigious landmark known for our exceptional service and timeless elegance.</string>
+
+    <string name="luxury">A Sanctuary of Luxury</string>
+    <string name="luxury_text">Step into our lobby and be greeted by the harmonious blend of modern sophistication and classic charm. Each of our [Number of Rooms] rooms and suites is meticulously designed to provide the utmost comfort and relaxation for our guests. Whether you\'re here for business or leisure, we offer a sanctuary where every detail is crafted to perfection.</string>
+
+    <string name="dining">Exceptional Dining Experience</string>
+    <string name="dining_text">Indulge your senses at our renowned restaurants, where culinary masterpieces are crafted with the finest ingredients. From exquisite fine dining to casual gatherings, our culinary offerings cater to every palate and occasion. Enjoy a symphony of flavors that will tantalize your taste buds and leave you craving for more.</string>
+
+    <string name="events">Unforgettable Events</string>
+    <string name="events_text">Celebrate life\'s special moments in our elegant event spaces, where every occasion is transformed into an unforgettable experience. Whether you\'re planning a wedding, corporate meeting, or social gathering, our dedicated team will ensure that every detail is executed flawlessly, leaving you free to savor the moment.</string>
 </resources>

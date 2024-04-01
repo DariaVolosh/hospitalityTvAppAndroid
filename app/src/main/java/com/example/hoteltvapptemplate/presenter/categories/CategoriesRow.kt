@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.unit.dp
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 
@@ -38,21 +39,25 @@ fun CategoriesRow(
     }
 
     val expanded by screenViewModel.isWelcomeScreen.observeAsState()
+    var focused by remember { mutableStateOf(false) }
 
     Row(
         modifier = Modifier
             .animateContentSize()
-            .height(if (expanded == true) 150.dp else 75.dp)
+            .height(if (expanded == true || focused) 150.dp else 75.dp)
             .fillMaxWidth()
+            .onFocusChanged {
+                focused = it.isFocused
+            }
             .background(MaterialTheme.colorScheme.primaryContainer),
-        horizontalArrangement = if (expanded == true) Arrangement.SpaceBetween
+        horizontalArrangement = if (expanded == true || focused) Arrangement.SpaceBetween
                                 else Arrangement.Center
     ) {
         for (c in currentNames) {
             Category(
-                name = if (expanded == true) c else "",
+                name = if (expanded == true || focused) c else "",
                 icon = categoriesViewModel.mapCategoryIcon(c),
-                modifier = if (expanded == true) Modifier.weight(1f)
+                modifier = if (expanded == true || focused) Modifier.weight(1f)
                            else Modifier.padding(horizontal = 8.dp),
             ) {
                 navigateToCategory(categoriesViewModel.mapScreenName(c))

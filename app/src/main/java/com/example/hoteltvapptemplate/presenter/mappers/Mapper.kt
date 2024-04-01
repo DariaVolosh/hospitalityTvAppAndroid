@@ -9,4 +9,6 @@ interface Mapper {
         appContext = newContext
         updateNamesMapper()
     }
+
+    fun getString(res: Int) = appContext.resources.getString(res)
 }

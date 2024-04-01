@@ -8,7 +8,6 @@ import javax.inject.Inject
 class ServicesViewModel @Inject constructor(
     private val servicesMapper: ServicesMapper
 ): ViewModel() {
-
     fun getServices() = servicesMapper.getServices()
     fun getSpecificServices() = servicesMapper.getSpecificServices()
     fun setMapperContext(context: Context) = servicesMapper.setContext(context)
