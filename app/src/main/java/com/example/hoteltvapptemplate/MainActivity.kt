@@ -63,6 +63,7 @@ fun MainScreen(
     getContext: () -> Context
 ) {
     val navController = rememberNavController()
+
     NavHost(
         navController = navController,
         startDestination = "welcomeScreen"
@@ -88,6 +89,8 @@ fun MainScreen(
         composable("hotelInfoScreen") {
             HotelInfoScreen(
                 hotelInfoViewModel,
+                screenViewModel,
+                categoriesViewModel,
                 { navigateToCategory(it, navController) },
                 getContext
             )

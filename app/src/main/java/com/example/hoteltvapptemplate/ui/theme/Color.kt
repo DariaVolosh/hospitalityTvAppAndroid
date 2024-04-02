@@ -1,11 +1,11 @@
 package com.example.hoteltvapptemplate.ui.theme
 import androidx.compose.ui.graphics.Color
 
-val md_theme_dark_primary = Color(0xFFD0BCFF)
+val md_theme_dark_primary = Color(0xFFD7CDED)
 val md_theme_dark_onPrimary = Color(0xFF4F378A)
 val md_theme_dark_primaryContainer = Color(0xFF522DA0)
 val md_theme_dark_onPrimaryContainer = Color(0xFFE9DDFF)
-val md_theme_dark_secondary = Color(0xFFCABEFF)
+val md_theme_dark_secondary = Color(0xFFD7CDED)
 val md_theme_dark_onSecondary = Color(0xFF312075)
 val md_theme_dark_secondaryContainer = Color(0xFF432386)
 val md_theme_dark_onSecondaryContainer = Color(0xFFE6DEFF)

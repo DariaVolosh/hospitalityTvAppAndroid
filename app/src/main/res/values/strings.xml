@@ -53,4 +53,7 @@
 
     <string name="events">Unforgettable Events</string>
     <string name="events_text">Celebrate life\'s special moments in our elegant event spaces, where every occasion is transformed into an unforgettable experience. Whether you\'re planning a wedding, corporate meeting, or social gathering, our dedicated team will ensure that every detail is executed flawlessly, leaving you free to savor the moment.</string>
+    <string name="left_arrow">Left arrow</string>
+    <string name="right_arrow">Right arrow</string>
+    <string name="offset">offset</string>
 </resources>

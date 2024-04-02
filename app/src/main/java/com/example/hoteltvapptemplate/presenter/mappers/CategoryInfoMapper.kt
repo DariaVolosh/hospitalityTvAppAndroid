@@ -5,7 +5,6 @@ import com.example.hoteltvapptemplate.R
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class CategoriesMapper @Inject constructor(
     override var appContext: Context

@@ -29,9 +29,7 @@ fun CategoriesRow(
     navigateToCategory: (String) -> Unit,
 ) {
 
-    var currentNames by remember {
-        mutableStateOf<Set<String>>(setOf())
-    }
+    var currentNames by remember { mutableStateOf<Set<String>>(setOf()) }
 
     LaunchedEffect(key1 = updatedContext) {
         categoriesViewModel.setMapperContext(updatedContext)
