@@ -62,4 +62,6 @@ dependencies {
     implementation("com.github.instacart:truetime-android:4.0.0.alpha")
     implementation("com.google.dagger:dagger:2.51")
     kapt("com.google.dagger:dagger-compiler:2.51")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 }

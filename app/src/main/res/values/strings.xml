@@ -56,4 +56,11 @@
     <string name="left_arrow">Left arrow</string>
     <string name="right_arrow">Right arrow</string>
     <string name="offset">offset</string>
+
+    <string name="weather_forecast">Weather forecast</string>
+    <string name="city_name">Tbilisi</string>
+    <string name="weather_wave">Weather wave</string>
+    <string name="today_forecast">Today</string>
+    <string name="tomorrow_forecast">Week</string>
+    <string name="weather_icon">Weather icon</string>
 </resources>

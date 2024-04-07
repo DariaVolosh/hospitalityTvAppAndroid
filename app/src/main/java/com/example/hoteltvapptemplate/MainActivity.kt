@@ -15,15 +15,22 @@ import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
+import com.example.hoteltvapptemplate.presenter.weather.WeatherScreen
+import com.example.hoteltvapptemplate.presenter.weather.WeatherViewModel
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
 import javax.inject.Inject
 
+data class MainScreenViewModels @Inject constructor(
+    val screenViewModel: ScreenViewModel,
+    val categoriesViewModel: CategoriesViewModel,
+    val servicesViewModel: ServicesViewModel,
+    val hotelInfoViewModel: HotelInfoViewModel,
+    val weatherViewModel: WeatherViewModel
+)
+
 class MainActivity : AppCompatActivity() {
-    @Inject lateinit var screenViewModel: ScreenViewModel
-    @Inject lateinit var categoriesViewModel: CategoriesViewModel
-    @Inject lateinit var servicesViewModel: ServicesViewModel
-    @Inject lateinit var hotelInfoViewModel: HotelInfoViewModel
+    @Inject lateinit var mainScreenViewModels: MainScreenViewModels
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +40,9 @@ class MainActivity : AppCompatActivity() {
         setContent {
             TvAppTheme {
                 MainScreen(
-                    screenViewModel,
-                    categoriesViewModel,
-                    servicesViewModel,
-                    hotelInfoViewModel,
-                    { context -> application.updateContext(context)}) {
-                    application.getContext()
-                }
+                    mainScreenViewModels,
+                    { context -> application.updateContext(context)}
+                ) { application.getContext() }
             }
         }
     }
@@ -55,10 +58,7 @@ fun navigateToCategory(
 
 @Composable
 fun MainScreen(
-    screenViewModel: ScreenViewModel,
-    categoriesViewModel: CategoriesViewModel,
-    servicesViewModel: ServicesViewModel,
-    hotelInfoViewModel: HotelInfoViewModel,
+    mainScreenViewModels: MainScreenViewModels,
     updateContext: (Context) -> Unit,
     getContext: () -> Context
 ) {
@@ -70,17 +70,17 @@ fun MainScreen(
     ) {
         composable("welcomeScreen") {
             WelcomeScreen(
-                categoriesViewModel,
-                screenViewModel,
+                mainScreenViewModels.categoriesViewModel,
+                mainScreenViewModels.screenViewModel,
                 { navigateToCategory(it, navController) }
             ) { updateContext(it) }
         }
 
         composable("servicesScreen") {
             ServicesScreen(
-                screenViewModel,
-                categoriesViewModel,
-                servicesViewModel,
+                mainScreenViewModels.screenViewModel,
+                mainScreenViewModels.categoriesViewModel,
+                mainScreenViewModels.servicesViewModel,
                 { navigateToCategory(it, navController) },
                 getContext
             )
@@ -88,9 +88,19 @@ fun MainScreen(
 
         composable("hotelInfoScreen") {
             HotelInfoScreen(
-                hotelInfoViewModel,
-                screenViewModel,
-                categoriesViewModel,
+                mainScreenViewModels.hotelInfoViewModel,
+                mainScreenViewModels.screenViewModel,
+                mainScreenViewModels.categoriesViewModel,
+                { navigateToCategory(it, navController) },
+                getContext
+            )
+        }
+
+        composable("weatherScreen") {
+            WeatherScreen(
+                mainScreenViewModels.weatherViewModel,
+                mainScreenViewModels.categoriesViewModel,
+                mainScreenViewModels.screenViewModel,
                 { navigateToCategory(it, navController) },
                 getContext
             )

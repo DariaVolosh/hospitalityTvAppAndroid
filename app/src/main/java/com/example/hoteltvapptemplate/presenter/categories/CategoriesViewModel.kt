@@ -2,7 +2,7 @@ package com.example.hoteltvapptemplate.presenter.categories
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.example.hoteltvapptemplate.presenter.mappers.CategoriesMapper
+import com.example.hoteltvapptemplate.mappers.CategoriesMapper
 import javax.inject.Inject
 
 class CategoriesViewModel @Inject constructor(

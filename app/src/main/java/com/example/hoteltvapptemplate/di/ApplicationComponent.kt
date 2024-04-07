@@ -6,7 +6,7 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
-@Component
+@Component(modules = [RetrofitModule::class])
 @Singleton
 interface ApplicationComponent {
     fun inject(activity: MainActivity)

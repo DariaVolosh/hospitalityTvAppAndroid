@@ -38,7 +38,7 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun TvAppTheme(
-  content: @Composable() () -> Unit
+  content: @Composable () -> Unit
 ) {
   MaterialTheme(
     colorScheme = DarkColors,

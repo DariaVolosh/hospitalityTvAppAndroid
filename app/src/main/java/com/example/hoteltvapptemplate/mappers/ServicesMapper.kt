@@ -1,4 +1,4 @@
-package com.example.hoteltvapptemplate.presenter.mappers
+package com.example.hoteltvapptemplate.mappers
 
 import android.content.Context
 import com.example.hoteltvapptemplate.R
