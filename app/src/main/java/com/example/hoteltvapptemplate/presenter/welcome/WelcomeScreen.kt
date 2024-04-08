@@ -24,9 +24,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
-import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
+import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
-import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import java.util.Locale
 
 fun setLocale(locale: Locale, oldContext: Context): Context {
@@ -36,26 +35,19 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 }
 
 @Composable
-fun WelcomeScreen(
-    categoriesViewModel: CategoriesViewModel,
-    screenViewModel: ScreenViewModel,
-    navigateToCategory: (String) -> Unit,
-    updateContext: (Context) -> Unit
-) {
+fun WelcomeScreen(screenParameters: ScreenParameters) {
     val curr = LocalContext.current.applicationContext
     var updatedContext by remember { mutableStateOf(curr) }
     
     DisposableEffect(Unit) {
         onDispose {
-            screenViewModel.isWelcomeScreen.value = false
+            screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.value = false
         }
     }
 
     ScreenBackground(
-        screenViewModel,
-        categoriesViewModel,
+        screenParameters,
         updatedContext.resources.getString(R.string.welcome_to_our_hotel),
-        navigateToCategory,
         updatedContext,
         {}
     ) {
@@ -77,7 +69,7 @@ fun WelcomeScreen(
                     .padding(end = 10.dp)
                     .clickable {
                         val newContext = setLocale(Locale.ENGLISH, updatedContext)
-                        updateContext(newContext)
+                        screenParameters.defaultParameters.updateContext(newContext)
                         updatedContext = newContext
                     }
                     .size(50.dp)
@@ -89,7 +81,7 @@ fun WelcomeScreen(
                 modifier = Modifier
                     .clickable {
                         val newContext = setLocale(Locale("ka"), updatedContext)
-                        updateContext(newContext)
+                        screenParameters.defaultParameters.updateContext(newContext)
                         updatedContext = newContext
                     }
                     .size(50.dp)

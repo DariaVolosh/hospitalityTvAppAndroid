@@ -63,4 +63,23 @@
     <string name="today_forecast">Today</string>
     <string name="tomorrow_forecast">Week</string>
     <string name="weather_icon">Weather icon</string>
+
+    <string name="our_restaurants">Our restaurants</string>
+    <string name="restaurant_image">Restaurant image</string>
+
+    <string name="restaurant_1_name">Restaurant 1</string>
+    <string name="restaurant_1_description">Description 1</string>
+    <string name="restaurant_1_open_hours">07:00-23:00</string>
+
+    <string name="restaurant_2_name">Restaurant 2</string>
+    <string name="restaurant_2_description">Description 2</string>
+    <string name="restaurant_2_open_hours">07:00-23:00</string>
+
+    <string name="restaurant_3_name">Restaurant 3</string>
+    <string name="restaurant_3_description">Description 3</string>
+    <string name="restaurant_3_open_hours">07:00-23:00</string>
+
+    <string name="restaurant_4_name">Restaurant 4</string>
+    <string name="restaurant_4_description">Description 4</string>
+    <string name="restaurant_4_open_hours">07:00-23:00</string>
 </resources>

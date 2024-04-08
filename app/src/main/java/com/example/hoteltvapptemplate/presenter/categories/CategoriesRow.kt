@@ -19,24 +19,24 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.unit.dp
-import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
+import com.example.hoteltvapptemplate.ScreenParameters
 
 @Composable
 fun CategoriesRow(
     updatedContext: Context,
-    screenViewModel: ScreenViewModel,
-    categoriesViewModel: CategoriesViewModel,
-    navigateToCategory: (String) -> Unit,
+    screenParameters: ScreenParameters
 ) {
 
     var currentNames by remember { mutableStateOf<Set<String>>(setOf()) }
+
+    val categoriesViewModel = screenParameters.mainScreenViewModels.categoriesViewModel
 
     LaunchedEffect(key1 = updatedContext) {
         categoriesViewModel.setMapperContext(updatedContext)
         currentNames = categoriesViewModel.getCategoriesNames()
     }
 
-    val expanded by screenViewModel.isWelcomeScreen.observeAsState()
+    val expanded by screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.observeAsState()
     var focused by remember { mutableStateOf(false) }
 
     Row(
@@ -58,7 +58,9 @@ fun CategoriesRow(
                 modifier = if (expanded == true || focused) Modifier.weight(1f)
                            else Modifier.padding(horizontal = 8.dp),
             ) {
-                navigateToCategory(categoriesViewModel.mapScreenName(c))
+                screenParameters.defaultParameters.navigateToCategory(
+                    categoriesViewModel.mapScreenName(c)
+                )
             }
         }
     }

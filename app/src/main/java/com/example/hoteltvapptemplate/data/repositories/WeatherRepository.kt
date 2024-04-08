@@ -1,5 +1,8 @@
-package com.example.hoteltvapptemplate.data
+package com.example.hoteltvapptemplate.data.repositories
 
+import com.example.hoteltvapptemplate.data.WEATHER_API_KEY
+import com.example.hoteltvapptemplate.data.WeatherDay
+import com.example.hoteltvapptemplate.data.WeatherResponse
 import com.example.hoteltvapptemplate.data.retrofit.WeatherService
 import kotlinx.coroutines.CompletableDeferred
 import retrofit2.Call

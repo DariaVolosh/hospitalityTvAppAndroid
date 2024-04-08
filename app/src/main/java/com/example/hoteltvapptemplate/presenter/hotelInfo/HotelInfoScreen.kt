@@ -1,6 +1,5 @@
 package com.example.hoteltvapptemplate.presenter.hotelInfo
 
-import android.content.Context
 import androidx.compose.animation.core.animateIntOffsetAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -23,9 +22,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.example.hoteltvapptemplate.R
-import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
+import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
-import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import kotlinx.coroutines.delay
 
 @Composable
@@ -42,14 +40,8 @@ fun getTextOffset(initial: Int) = animateIntOffsetAsState(
     )
 
 @Composable
-fun HotelInfoScreen(
-    hotelInfoViewModel: HotelInfoViewModel,
-    screenViewModel: ScreenViewModel,
-    categoriesViewModel: CategoriesViewModel,
-    navigateToCategory: (String) -> Unit,
-    getContext: () -> Context
-) {
-    val curr = getContext()
+fun HotelInfoScreen(screenParameters: ScreenParameters) {
+    val curr = screenParameters.defaultParameters.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
     var headers by remember { mutableStateOf(listOf<String>()) }
@@ -61,6 +53,8 @@ fun HotelInfoScreen(
     val offsetState = getTextOffset(initial)
 
     val isActive = true
+
+    val hotelInfoViewModel = screenParameters.mainScreenViewModels.hotelInfoViewModel
     
     LaunchedEffect(key1 = updatedContext) {
         hotelInfoViewModel.setMapperContext(updatedContext)
@@ -84,10 +78,8 @@ fun HotelInfoScreen(
     }
 
     ScreenBackground(
-        screenViewModel = screenViewModel,
-        categoriesViewModel = categoriesViewModel,
+        screenParameters,
         headerText = if (headers.isNotEmpty()) headers[currentTopicIndex] else "",
-        navigateToCategory = navigateToCategory,
         updatedContext = updatedContext,
         mainContent = {
             Row(

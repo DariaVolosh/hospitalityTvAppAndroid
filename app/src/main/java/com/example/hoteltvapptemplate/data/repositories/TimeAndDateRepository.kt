@@ -1,4 +1,4 @@
-package com.example.hoteltvapptemplate.data
+package com.example.hoteltvapptemplate.data.repositories
 
 import com.instacart.truetime.time.TrueTimeImpl
 import kotlinx.coroutines.Dispatchers

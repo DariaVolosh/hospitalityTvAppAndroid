@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.example.hoteltvapptemplate.mappers.CategoriesMapper
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class CategoriesViewModel @Inject constructor(
     private val categoriesMapper: CategoriesMapper
 ): ViewModel() {

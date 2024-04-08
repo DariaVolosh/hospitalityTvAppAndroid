@@ -7,10 +7,10 @@ import com.example.hoteltvapptemplate.di.DaggerApplicationComponent
 import javax.inject.Inject
 
 class MyApplication @Inject constructor(): Application() {
+    private lateinit var appContext: Context
     val appComponent: ApplicationComponent by lazy {
         DaggerApplicationComponent.factory().passContext(applicationContext)
     }
-    private lateinit var appContext: Context
     override fun onCreate() {
         super.onCreate()
         appContext = applicationContext
@@ -20,5 +20,7 @@ class MyApplication @Inject constructor(): Application() {
         appContext = newContext
     }
 
-    fun getContext() = appContext
+    fun getContext(): Context {
+        return appContext
+    }
 }

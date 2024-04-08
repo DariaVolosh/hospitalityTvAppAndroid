@@ -12,6 +12,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoScreen
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
+import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsScreen
+import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
@@ -26,84 +28,79 @@ data class MainScreenViewModels @Inject constructor(
     val categoriesViewModel: CategoriesViewModel,
     val servicesViewModel: ServicesViewModel,
     val hotelInfoViewModel: HotelInfoViewModel,
-    val weatherViewModel: WeatherViewModel
+    val weatherViewModel: WeatherViewModel,
+    val restaurantsViewModel: RestaurantsViewModel
+)
+
+class DefaultParameters @Inject constructor() {
+    private lateinit var navController: NavController
+    private lateinit var application: MyApplication
+    fun navigateToCategory(screenName: String) {
+        navController.navigate(screenName)
+    }
+    fun setApplication(app: MyApplication) {
+        application = app
+    }
+    fun setNavController(controller: NavController) {
+        navController = controller
+    }
+    fun getContext(): Context {
+        return application.getContext()
+    }
+    fun updateContext(context: Context) = application.updateContext(context)
+}
+
+data class ScreenParameters @Inject constructor(
+    val mainScreenViewModels: MainScreenViewModels,
+    val defaultParameters: DefaultParameters
 )
 
 class MainActivity : AppCompatActivity() {
-    @Inject lateinit var mainScreenViewModels: MainScreenViewModels
+    @Inject lateinit var screenParameters: ScreenParameters
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val application = application as MyApplication
 
+        val application = application as MyApplication
         application.appComponent.inject(this)
+        screenParameters.defaultParameters.setApplication(application)
         setContent {
             TvAppTheme {
-                MainScreen(
-                    mainScreenViewModels,
-                    { context -> application.updateContext(context)}
-                ) { application.getContext() }
+                MainScreen(screenParameters)
             }
         }
     }
 }
 
-
-fun navigateToCategory(
-    screenName: String,
-    navController: NavController,
-) {
-    navController.navigate(screenName)
-}
-
 @Composable
 fun MainScreen(
-    mainScreenViewModels: MainScreenViewModels,
-    updateContext: (Context) -> Unit,
-    getContext: () -> Context
+    screenParameters: ScreenParameters
 ) {
     val navController = rememberNavController()
+    screenParameters.defaultParameters.setNavController(navController)
 
     NavHost(
         navController = navController,
         startDestination = "welcomeScreen"
     ) {
         composable("welcomeScreen") {
-            WelcomeScreen(
-                mainScreenViewModels.categoriesViewModel,
-                mainScreenViewModels.screenViewModel,
-                { navigateToCategory(it, navController) }
-            ) { updateContext(it) }
+            WelcomeScreen(screenParameters)
         }
 
         composable("servicesScreen") {
-            ServicesScreen(
-                mainScreenViewModels.screenViewModel,
-                mainScreenViewModels.categoriesViewModel,
-                mainScreenViewModels.servicesViewModel,
-                { navigateToCategory(it, navController) },
-                getContext
-            )
+            ServicesScreen(screenParameters)
         }
 
         composable("hotelInfoScreen") {
-            HotelInfoScreen(
-                mainScreenViewModels.hotelInfoViewModel,
-                mainScreenViewModels.screenViewModel,
-                mainScreenViewModels.categoriesViewModel,
-                { navigateToCategory(it, navController) },
-                getContext
-            )
+            HotelInfoScreen(screenParameters)
         }
 
         composable("weatherScreen") {
-            WeatherScreen(
-                mainScreenViewModels.weatherViewModel,
-                mainScreenViewModels.categoriesViewModel,
-                mainScreenViewModels.screenViewModel,
-                { navigateToCategory(it, navController) },
-                getContext
-            )
+            WeatherScreen(screenParameters)
+        }
+
+        composable("restaurantsScreen") {
+            RestaurantsScreen(screenParameters)
         }
     }
 }

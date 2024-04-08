@@ -26,22 +26,20 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
+import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesRow
-import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.ui.theme.md_theme_transparent
 
 @Composable
 fun ScreenBackground(
-    screenViewModel: ScreenViewModel,
-    categoriesViewModel: CategoriesViewModel,
+    screenParameters: ScreenParameters,
     headerText: String,
-    navigateToCategory: (String) -> Unit,
     updatedContext: Context,
     mainContent: @Composable (modifier: Modifier) -> Unit,
     headerAdditions: @Composable () -> Unit
 ) {
-    val date = screenViewModel.date.observeAsState()
-    val time = screenViewModel.time.observeAsState()
+    val date = screenParameters.mainScreenViewModels.screenViewModel.date.observeAsState()
+    val time = screenParameters.mainScreenViewModels.screenViewModel.time.observeAsState()
 
     val brush = Brush.verticalGradient(
         listOf(
@@ -108,9 +106,7 @@ fun ScreenBackground(
 
             CategoriesRow(
                 updatedContext,
-                screenViewModel,
-                categoriesViewModel,
-                navigateToCategory
+                screenParameters
             )
         }
     }

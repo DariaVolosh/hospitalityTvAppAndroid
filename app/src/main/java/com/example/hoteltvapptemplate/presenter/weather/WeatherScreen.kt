@@ -1,6 +1,5 @@
 package com.example.hoteltvapptemplate.presenter.weather
 
-import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,10 +24,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
+import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.data.WeatherHour
-import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
-import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 
 @Composable
 fun getCurrentHourWeather(
@@ -40,20 +38,16 @@ fun getCurrentHourWeather(
     }[0]
 
 @Composable
-fun WeatherScreen(
-    weatherViewModel: WeatherViewModel,
-    categoriesViewModel: CategoriesViewModel,
-    screenViewModel: ScreenViewModel,
-    navigateToCategory: (String) -> Unit,
-    getContext: () -> Context
-) {
-    val curr = getContext()
+fun WeatherScreen(screenParameters: ScreenParameters) {
+    val curr = screenParameters.defaultParameters.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
+
+    val weatherViewModel = screenParameters.mainScreenViewModels.weatherViewModel
 
     val weeklyForecast by weatherViewModel.weeklyForecast.observeAsState()
     val hourlyForecast by weatherViewModel.hourlyForecast.observeAsState()
 
-    val time by screenViewModel.time.observeAsState()
+    val time by screenParameters.mainScreenViewModels.screenViewModel.time.observeAsState()
 
     val currHourWeather = getCurrentHourWeather(
         hourlyForecast = hourlyForecast ?: emptyList(),
@@ -64,10 +58,8 @@ fun WeatherScreen(
     }
 
     ScreenBackground(
-        screenViewModel,
-        categoriesViewModel,
+        screenParameters,
         updatedContext.resources.getString(R.string.weather_forecast),
-        navigateToCategory,
         updatedContext,
         { modifier ->
             Column(

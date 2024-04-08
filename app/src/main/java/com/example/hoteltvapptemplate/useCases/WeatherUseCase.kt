@@ -1,6 +1,6 @@
 package com.example.hoteltvapptemplate.useCases
 
-import com.example.hoteltvapptemplate.data.WeatherRepository
+import com.example.hoteltvapptemplate.data.repositories.WeatherRepository
 import javax.inject.Inject
 
 class WeatherUseCase @Inject constructor(

@@ -1,6 +1,5 @@
 package com.example.hoteltvapptemplate.presenter.services
 
-import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -21,23 +20,18 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.unit.dp
 import com.example.hoteltvapptemplate.R
-import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
+import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
-import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun ServicesScreen(
-    screenViewModel: ScreenViewModel,
-    categoriesViewModel: CategoriesViewModel,
-    servicesViewModel: ServicesViewModel,
-    navigateToCategory: (String) -> Unit,
-    getContext: () -> Context
-) {
-    val curr = getContext()
+fun ServicesScreen(screenParameters: ScreenParameters) {
+    val curr = screenParameters.defaultParameters.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
     var services by remember { mutableStateOf(listOf<String>()) }
     var specificServices by remember { mutableStateOf(listOf<List<String>>()) }
+
+    val servicesViewModel = screenParameters.mainScreenViewModels.servicesViewModel
 
     LaunchedEffect(key1 = updatedContext) {
         servicesViewModel.setMapperContext(updatedContext)
@@ -53,10 +47,8 @@ fun ServicesScreen(
     val scope = rememberCoroutineScope()
 
     ScreenBackground(
-        screenViewModel,
-        categoriesViewModel,
+        screenParameters,
         updatedContext.resources.getString(R.string.variety_of_services),
-        navigateToCategory,
         updatedContext,
         {modifier ->
             LazyColumn(
