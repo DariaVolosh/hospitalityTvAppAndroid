@@ -37,25 +37,25 @@ fun CategoriesRow(
     }
 
     val expanded by screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.observeAsState()
-    var focused by remember { mutableStateOf(false) }
+    val focused by screenParameters.mainScreenViewModels.categoriesViewModel.isFocused.observeAsState()
 
     Row(
         modifier = Modifier
             .animateContentSize()
-            .height(if (expanded == true || focused) 150.dp else 75.dp)
+            .height(if (expanded == true || focused == true) 150.dp else 75.dp)
             .fillMaxWidth()
             .onFocusChanged {
-                focused = it.isFocused
+                screenParameters.mainScreenViewModels.categoriesViewModel.isFocused.postValue(it.isFocused)
             }
             .background(MaterialTheme.colorScheme.primaryContainer),
-        horizontalArrangement = if (expanded == true || focused) Arrangement.SpaceBetween
+        horizontalArrangement = if (expanded == true || focused == true) Arrangement.SpaceBetween
                                 else Arrangement.Center
     ) {
         for (c in currentNames) {
             Category(
-                name = if (expanded == true || focused) c else "",
+                name = if (expanded == true || focused == true) c else "",
                 icon = categoriesViewModel.mapCategoryIcon(c),
-                modifier = if (expanded == true || focused) Modifier.weight(1f)
+                modifier = if (expanded == true || focused == true) Modifier.weight(1f)
                            else Modifier.padding(horizontal = 8.dp),
             ) {
                 screenParameters.defaultParameters.navigateToCategory(

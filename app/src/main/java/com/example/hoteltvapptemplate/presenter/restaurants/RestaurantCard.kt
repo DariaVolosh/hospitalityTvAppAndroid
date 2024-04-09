@@ -2,7 +2,6 @@ package com.example.hoteltvapptemplate.presenter.restaurants
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +13,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -52,7 +52,6 @@ fun RestaurantCard(
             modifier = Modifier
                 .weight(0.5f)
                 .padding(end = 40.dp)
-                .border(1.dp, Color.Black)
         ) {
             Text(
                 text = restaurantName,
@@ -64,7 +63,10 @@ fun RestaurantCard(
             HorizontalDivider(
                 thickness = 2.dp,
                 color = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.weight(0.6f)
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .fillMaxWidth(0.7f)
+                    .align(Alignment.End)
             )
 
             Text(

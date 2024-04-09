@@ -1,16 +1,24 @@
 package com.example.hoteltvapptemplate.presenter.restaurants
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import com.example.hoteltvapptemplate.R
 import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
+import kotlinx.coroutines.launch
 
 @Composable
 fun RestaurantsScreen(
@@ -21,13 +29,53 @@ fun RestaurantsScreen(
     val restaurantsList =
         screenParameters.mainScreenViewModels.restaurantsViewModel.getRestaurantsData()
 
+    val isCategoriesFocused by screenParameters
+        .mainScreenViewModels.categoriesViewModel.isFocused.observeAsState()
+
+    val scrollState = rememberLazyListState()
+    val scope = rememberCoroutineScope()
+    var currentRestaurant = 0
+
     ScreenBackground(
         screenParameters,
         updatedContext.resources.getString(R.string.our_restaurants),
         updatedContext,
         { modifier ->
             LazyColumn(
-                modifier = modifier.fillMaxWidth(),
+                state = scrollState,
+                modifier = modifier
+                    .focusable()
+                    .onKeyEvent {
+                        when (it.key) {
+                            Key.DirectionDown -> {
+                                if (currentRestaurant + 1 < restaurantsList.size) {
+                                    scope.launch {
+                                        scrollState.animateScrollToItem(currentRestaurant + 1)
+                                        currentRestaurant++
+                                    }
+
+                                    true
+                                } else {
+                                    false
+                                }
+                            }
+
+                            Key.DirectionUp -> {
+                                if (currentRestaurant > 0) {
+                                    scope.launch {
+                                        scrollState.animateScrollToItem(currentRestaurant - 1)
+                                        currentRestaurant--
+                                    }
+                                    true
+                                } else {
+                                    false
+                                }
+                            }
+
+                            else -> false
+                        }
+                    }
+                    .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 items(restaurantsList.size) {index ->
@@ -37,7 +85,9 @@ fun RestaurantsScreen(
                         restaurantName = restaurant.name,
                         restaurantDescription = restaurant.description,
                         openHours = restaurant.openHours,
-                        Modifier.fillParentMaxHeight(0.7f)
+                        Modifier.fillParentMaxHeight(
+                            if (isCategoriesFocused == true) 1f else 0.75f
+                        )
                     )
                 }
             }

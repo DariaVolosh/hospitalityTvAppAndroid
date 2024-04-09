@@ -69,7 +69,7 @@ fun ScreenBackground(
         ) {
             Row(
                 modifier = Modifier
-                    .padding(top = 30.dp, start = 40.dp, end = 40.dp)
+                    .padding(vertical = 30.dp, horizontal = 40.dp)
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
