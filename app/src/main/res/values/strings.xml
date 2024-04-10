@@ -82,4 +82,14 @@
     <string name="restaurant_4_name">Restaurant 4</string>
     <string name="restaurant_4_description">Description 4</string>
     <string name="restaurant_4_open_hours">07:00-23:00</string>
+
+    <string name="open_horus">Open horus</string>
+
+    <string name="room_1">Room type 1</string>
+    <string name="room_2">Room type 2</string>
+    <string name="room_3">Room type 3</string>
+    <string name="room_4">Room type 4</string>
+    <string name="room_5">Room type 5</string>
+    <string name="room_6">Room type 6</string>
+    <string name="room">Room</string>
 </resources>

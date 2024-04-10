@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -82,12 +83,23 @@ fun RestaurantCard(
                 modifier = Modifier.weight(1f)
             )
 
-            Text(
-                modifier = Modifier.padding(bottom = 10.dp),
-                text = "Open hours: $openHours",
-                fontSize = 16.sp,
-                fontFamily = FontFamily(Font(R.font.nokoro_regular))
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Open hours: $openHours",
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.nokoro_regular)),
+                )
+
+                Image(
+                    modifier = Modifier
+                        .size(30.dp)
+                        .padding(start = 10.dp),
+                    painter = painterResource(R.drawable.open_hours),
+                    contentDescription = stringResource(R.string.open_horus)
+                )
+            }
         }
     }
 }

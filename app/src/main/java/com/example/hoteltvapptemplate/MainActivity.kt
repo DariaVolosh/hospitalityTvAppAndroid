@@ -14,6 +14,8 @@ import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoScreen
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
 import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsScreen
 import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsViewModel
+import com.example.hoteltvapptemplate.presenter.rooms.RoomsScreen
+import com.example.hoteltvapptemplate.presenter.rooms.RoomsViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
@@ -29,7 +31,8 @@ data class MainScreenViewModels @Inject constructor(
     val servicesViewModel: ServicesViewModel,
     val hotelInfoViewModel: HotelInfoViewModel,
     val weatherViewModel: WeatherViewModel,
-    val restaurantsViewModel: RestaurantsViewModel
+    val restaurantsViewModel: RestaurantsViewModel,
+    val roomsViewModel: RoomsViewModel
 )
 
 class DefaultParameters @Inject constructor() {
@@ -101,6 +104,10 @@ fun MainScreen(
 
         composable("restaurantsScreen") {
             RestaurantsScreen(screenParameters)
+        }
+
+        composable("roomsScreen") {
+            RoomsScreen(screenParameters)
         }
     }
 }
