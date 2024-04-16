@@ -5,11 +5,15 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
+import com.example.hoteltvapptemplate.presenter.channels.ChannelsList
+import com.example.hoteltvapptemplate.presenter.channels.PlaylistURLViewModel
+import com.example.hoteltvapptemplate.presenter.channels.WatchChannel
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoScreen
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
 import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsScreen
@@ -32,7 +36,8 @@ data class MainScreenViewModels @Inject constructor(
     val hotelInfoViewModel: HotelInfoViewModel,
     val weatherViewModel: WeatherViewModel,
     val restaurantsViewModel: RestaurantsViewModel,
-    val roomsViewModel: RoomsViewModel
+    val roomsViewModel: RoomsViewModel,
+    val playlistURLViewModel: PlaylistURLViewModel
 )
 
 class DefaultParameters @Inject constructor() {
@@ -84,7 +89,7 @@ fun MainScreen(
 
     NavHost(
         navController = navController,
-        startDestination = "welcomeScreen"
+        startDestination = stringResource(R.string.welcome_screen)
     ) {
         composable("welcomeScreen") {
             WelcomeScreen(screenParameters)
@@ -108,6 +113,14 @@ fun MainScreen(
 
         composable("roomsScreen") {
             RoomsScreen(screenParameters)
+        }
+
+        composable("tvChannelsScreen") {
+            ChannelsList(screenParameters)
+        }
+
+        composable("watchChannelScreen/{channelUrl}") {
+            WatchChannel(it.arguments?.getString("channelUrl") ?: "")
         }
     }
 }

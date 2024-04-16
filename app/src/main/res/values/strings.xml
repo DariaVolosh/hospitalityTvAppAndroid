@@ -14,12 +14,14 @@
     <string name="restaurants">Restaurants</string>
     <string name="rooms">Rooms</string>
     <string name="variety_of_services">We provide a variety of services</string>
+    <string name="welcome_screen">welcomeScreen</string>
     <string name="tv_channels_screen">tvChannelsScreen</string>
     <string name="services_screen">servicesScreen</string>
     <string name="weather_screen">weatherScreen</string>
     <string name="hotel_info_screen">hotelInfoScreen</string>
     <string name="restaurants_screen">restaurantsScreen</string>
     <string name="rooms_screen">roomsScreen</string>
+    <string name="watch_channel_screen">watchChannelScreen</string>
 
     <string name="accommodation_services">Accommodation services</string>
     <string name="room_booking">Room booking/reservation</string>
@@ -92,4 +94,6 @@
     <string name="room_5">Room type 5</string>
     <string name="room_6">Room type 6</string>
     <string name="room">Room</string>
+
+    <string name="channel_logo_text">Channel logo</string>
 </resources>
