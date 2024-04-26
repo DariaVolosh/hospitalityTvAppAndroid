@@ -1,6 +1,6 @@
 package com.example.hoteltvapptemplate.data.retrofit
 
-import com.example.hoteltvapptemplate.data.WeatherResponse
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

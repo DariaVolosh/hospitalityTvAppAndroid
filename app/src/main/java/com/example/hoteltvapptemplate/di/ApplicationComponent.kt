@@ -2,6 +2,7 @@ package com.example.hoteltvapptemplate.di
 
 import android.content.Context
 import com.example.hoteltvapptemplate.MainActivity
+import com.example.hoteltvapptemplate.MyApplication
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -13,6 +14,9 @@ interface ApplicationComponent {
 
     @Component.Factory
     interface Factory {
-        fun passContext(@BindsInstance context: Context): ApplicationComponent
+        fun passAppAndContext(
+            @BindsInstance context: Context,
+            @BindsInstance myApplication: MyApplication
+        ): ApplicationComponent
     }
 }

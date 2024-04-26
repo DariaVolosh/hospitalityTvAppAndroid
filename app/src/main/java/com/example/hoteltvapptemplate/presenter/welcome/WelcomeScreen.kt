@@ -16,7 +16,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
@@ -36,7 +35,7 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 
 @Composable
 fun WelcomeScreen(screenParameters: ScreenParameters) {
-    val curr = LocalContext.current.applicationContext
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     var updatedContext by remember { mutableStateOf(curr) }
     
     DisposableEffect(Unit) {
@@ -69,7 +68,7 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                     .padding(end = 10.dp)
                     .clickable {
                         val newContext = setLocale(Locale.ENGLISH, updatedContext)
-                        screenParameters.defaultParameters.updateContext(newContext)
+                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(newContext)
                         updatedContext = newContext
                     }
                     .size(50.dp)
@@ -81,10 +80,9 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 modifier = Modifier
                     .clickable {
                         val newContext = setLocale(Locale("ka"), updatedContext)
-                        screenParameters.defaultParameters.updateContext(newContext)
+                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(newContext)
                         updatedContext = newContext
-                    }
-                    .size(50.dp)
+                    }.size(50.dp)
             )
         }
     }

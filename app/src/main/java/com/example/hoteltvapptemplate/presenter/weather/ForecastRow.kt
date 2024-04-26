@@ -22,8 +22,8 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.unit.dp
 import com.example.hoteltvapptemplate.R
-import com.example.hoteltvapptemplate.data.WeatherDay
-import com.example.hoteltvapptemplate.data.WeatherHour
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherDay
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherHour
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale

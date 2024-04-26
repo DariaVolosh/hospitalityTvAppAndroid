@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun ServicesScreen(screenParameters: ScreenParameters) {
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
     var services by remember { mutableStateOf(listOf<String>()) }
     var specificServices by remember { mutableStateOf(listOf<List<String>>()) }

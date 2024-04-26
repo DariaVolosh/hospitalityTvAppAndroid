@@ -1,6 +1,6 @@
 package com.example.hoteltvapptemplate.data.repositories
 
-import com.example.hoteltvapptemplate.data.IptvChannel
+import com.example.hoteltvapptemplate.data.dataClasses.IptvChannel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader

@@ -3,8 +3,8 @@ package com.example.hoteltvapptemplate.presenter.weather
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hoteltvapptemplate.data.WeatherDay
-import com.example.hoteltvapptemplate.data.WeatherHour
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherDay
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherHour
 import com.example.hoteltvapptemplate.useCases.WeatherUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject

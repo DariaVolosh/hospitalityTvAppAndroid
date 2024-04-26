@@ -41,7 +41,7 @@ fun getTextOffset(initial: Int) = animateIntOffsetAsState(
 
 @Composable
 fun HotelInfoScreen(screenParameters: ScreenParameters) {
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
     var headers by remember { mutableStateOf(listOf<String>()) }

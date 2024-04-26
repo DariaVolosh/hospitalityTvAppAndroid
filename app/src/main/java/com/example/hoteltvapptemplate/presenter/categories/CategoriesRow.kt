@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.unit.dp
+import com.example.hoteltvapptemplate.R
 import com.example.hoteltvapptemplate.ScreenParameters
 
 @Composable
@@ -58,9 +59,13 @@ fun CategoriesRow(
                 modifier = if (expanded == true || focused == true) Modifier.weight(1f)
                            else Modifier.padding(horizontal = 8.dp),
             ) {
-                screenParameters.defaultParameters.navigateToCategory(
-                    categoriesViewModel.mapScreenName(c)
-                )
+                if (c == updatedContext.getString(R.string.tv_channels) || c == updatedContext.getString(R.string.youtube)) {
+                    screenParameters.mainScreenViewModels.applicationsViewModel.launchExternalApp(c)
+                } else {
+                    screenParameters.navigationHandler.navigateToCategory(
+                        categoriesViewModel.mapScreenName(c)
+                    )
+                }
             }
         }
     }

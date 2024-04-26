@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 fun RoomsScreen(
     screenParameters: ScreenParameters
 ) {
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
     val roomsList = screenParameters.mainScreenViewModels.roomsViewModel.getRoomsData()

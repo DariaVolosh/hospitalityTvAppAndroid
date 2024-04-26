@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets
 @Composable
 fun ChannelsList(screenParameters: ScreenParameters) {
     val channels by screenParameters.mainScreenViewModels.playlistURLViewModel.channels.observeAsState()
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
     Row {
@@ -35,9 +35,12 @@ fun ChannelsList(screenParameters: ScreenParameters) {
                         channelLogoURL = channel.tvLogoUrl,
                         channelName = channel.channelName
                     ) {
-                        screenParameters.defaultParameters.navigateToCategory(
+                        screenParameters.navigationHandler.navigateToCategory(
                             "${updatedContext.getString(R.string.watch_channel_screen)}/" +
-                                    "${URLEncoder.encode(channel.channelURL ,StandardCharsets.UTF_8.toString())}"
+                                    URLEncoder.encode(
+                                        channel.channelURL,
+                                        StandardCharsets.UTF_8.toString()
+                                    )
                         )
                     }
                 }

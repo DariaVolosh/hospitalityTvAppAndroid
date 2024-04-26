@@ -1,4 +1,4 @@
-package com.example.hoteltvapptemplate.data
+package com.example.hoteltvapptemplate.data.dataClasses
 
 data class Restaurant(
     val name: String,

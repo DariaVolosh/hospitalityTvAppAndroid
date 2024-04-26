@@ -7,6 +7,7 @@
     <string name="english_language">English language</string>
     <string name="georgian_language">Georgian language</string>
     <string name="date">11/02/2024</string>
+    <string name="youtube">Youtube</string>
     <string name="tv_channels">Tv channels</string>
     <string name="our_services">Our services</string>
     <string name="weather">Weather</string>
@@ -14,6 +15,8 @@
     <string name="restaurants">Restaurants</string>
     <string name="rooms">Rooms</string>
     <string name="variety_of_services">We provide a variety of services</string>
+
+    <string name="youtube_screen">youtubeScreen</string>
     <string name="welcome_screen">welcomeScreen</string>
     <string name="tv_channels_screen">tvChannelsScreen</string>
     <string name="services_screen">servicesScreen</string>
@@ -96,4 +99,13 @@
     <string name="room">Room</string>
 
     <string name="channel_logo_text">Channel logo</string>
+
+    <string name="ok_tv_package_name">ag.sarpi</string>
+    <string name="ok_tv_main_activity_name">ag.sarpi.LoginActivity</string>
+
+    <string name="tivimate_package_name">ar.tvplayer.tv</string>
+    <string name="tivimate_main_activity_name">ar.tvplayer.tv.ui.MainActivity</string>
+
+    <string name="youtube_package_name">com.google.android.youtube</string>
+    <string name="youtube_main_activity_name">com.google.android.apps.youtube.app.application.Shell_HomeActivity</string>
 </resources>

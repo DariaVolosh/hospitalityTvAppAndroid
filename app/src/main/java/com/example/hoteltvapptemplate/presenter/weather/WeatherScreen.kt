@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hoteltvapptemplate.R
 import com.example.hoteltvapptemplate.ScreenParameters
-import com.example.hoteltvapptemplate.data.WeatherHour
+import com.example.hoteltvapptemplate.data.dataClasses.WeatherHour
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
 
 @Composable
@@ -39,7 +39,7 @@ fun getCurrentHourWeather(
 
 @Composable
 fun WeatherScreen(screenParameters: ScreenParameters) {
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
     val weatherViewModel = screenParameters.mainScreenViewModels.weatherViewModel

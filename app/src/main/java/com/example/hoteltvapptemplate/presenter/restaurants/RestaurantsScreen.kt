@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 fun RestaurantsScreen(
     screenParameters: ScreenParameters
 ) {
-    val curr = screenParameters.defaultParameters.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
     val restaurantsList =
         screenParameters.mainScreenViewModels.restaurantsViewModel.getRestaurantsData()

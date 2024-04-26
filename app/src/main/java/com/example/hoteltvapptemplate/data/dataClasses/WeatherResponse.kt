@@ -1,4 +1,4 @@
-package com.example.hoteltvapptemplate.data
+package com.example.hoteltvapptemplate.data.dataClasses
 
 import com.google.gson.annotations.SerializedName
 
