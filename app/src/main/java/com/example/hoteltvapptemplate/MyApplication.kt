@@ -2,7 +2,6 @@ package com.example.hoteltvapptemplate
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import com.example.hoteltvapptemplate.di.ApplicationComponent
 import com.example.hoteltvapptemplate.di.DaggerApplicationComponent
 
@@ -14,7 +13,6 @@ class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         appContext = applicationContext
-        Log.i("LOL", this.toString())
     }
 
     fun updateContext(newContext: Context) {
@@ -22,7 +20,6 @@ class MyApplication: Application() {
     }
 
     fun getContext(): Context {
-        Log.i("LOL", this.toString())
         return appContext
     }
 }

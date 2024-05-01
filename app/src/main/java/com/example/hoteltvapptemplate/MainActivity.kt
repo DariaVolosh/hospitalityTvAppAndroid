@@ -26,10 +26,12 @@ import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
 import com.example.hoteltvapptemplate.presenter.weather.WeatherScreen
 import com.example.hoteltvapptemplate.presenter.weather.WeatherViewModel
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
+import com.example.hoteltvapptemplate.presenter.welcome.WelcomeViewModel
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
 import javax.inject.Inject
 
 data class MainScreenViewModels @Inject constructor(
+    val welcomeViewModel: WelcomeViewModel,
     val screenViewModel: ScreenViewModel,
     val categoriesViewModel: CategoriesViewModel,
     val servicesViewModel: ServicesViewModel,

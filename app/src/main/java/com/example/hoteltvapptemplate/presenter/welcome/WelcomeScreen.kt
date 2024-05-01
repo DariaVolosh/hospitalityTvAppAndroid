@@ -3,7 +3,6 @@ package com.example.hoteltvapptemplate.presenter.welcome
 import android.Manifest
 import android.content.Context
 import android.content.res.Configuration
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -43,27 +42,22 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
     val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     var updatedContext by remember { mutableStateOf(curr) }
 
-    val filesDir = curr.filesDir
-
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            Log.i("LOL", "granted")
-            screenParameters.mainScreenViewModels.screenViewModel.downloadAndInstallApk(curr, filesDir)
-        } else {
-            Log.i("LOL", "is not granted")
+           screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
         }
+    }
+
+    LaunchedEffect(Unit) {
+        requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
     
     DisposableEffect(Unit) {
         onDispose {
             screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.value = false
         }
-    }
-
-    LaunchedEffect(Unit) {
-        requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 
     ScreenBackground(
