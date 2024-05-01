@@ -1,7 +1,11 @@
 package com.example.hoteltvapptemplate.presenter.welcome
 
+import android.Manifest
 import android.content.Context
 import android.content.res.Configuration
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -11,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,11 +42,28 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 fun WelcomeScreen(screenParameters: ScreenParameters) {
     val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     var updatedContext by remember { mutableStateOf(curr) }
+
+    val filesDir = curr.filesDir
+
+    val requestPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Log.i("LOL", "granted")
+            screenParameters.mainScreenViewModels.screenViewModel.downloadAndInstallApk(curr, filesDir)
+        } else {
+            Log.i("LOL", "is not granted")
+        }
+    }
     
     DisposableEffect(Unit) {
         onDispose {
             screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.value = false
         }
+    }
+
+    LaunchedEffect(Unit) {
+        requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 
     ScreenBackground(
@@ -68,7 +90,9 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                     .padding(end = 10.dp)
                     .clickable {
                         val newContext = setLocale(Locale.ENGLISH, updatedContext)
-                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(newContext)
+                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
+                            newContext
+                        )
                         updatedContext = newContext
                     }
                     .size(50.dp)
@@ -80,9 +104,12 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 modifier = Modifier
                     .clickable {
                         val newContext = setLocale(Locale("ka"), updatedContext)
-                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(newContext)
+                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
+                            newContext
+                        )
                         updatedContext = newContext
-                    }.size(50.dp)
+                    }
+                    .size(50.dp)
             )
         }
     }

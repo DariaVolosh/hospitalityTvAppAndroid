@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "hospitality-tv-apps",
+  "private_key_id": "2f61c437be4f23a3cdb2d991d2cf66d4594e91b8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDceNHVB+KkQdxo\nP9TpCsuROwtPBhAt251OIx+ohWohxOyZl0AL3RfhQtNOuW4atkMXso1of0zBjvS9\nDaonX7nb6IIoS9++GmnEEL13EJMXFm3m3tIoeeZZ+hkq2gvWyUjnwd3P5uznZgjY\nipWezvI3VHgb8JZGvcjaiHvVYghe7FUKR4zcgAaN38Q6bcS9Xuff1ehbkwW+x3Xm\nnI8UM/mHmo5wITUa+IpBlZ1zyBVW0buL+V76XU4VTh0Cti5wLkYWagv+5una9ih6\nSC4rlJe4XSdnxYhhsG2a8dPSqgJumSAMktd5O4/B7u4VbwxQH98MBLcK6UFOO3Cv\njMFKvxERAgMBAAECggEAFkQadwAWnt2q75lgvI9zSy3SIM89M5BuNN29vQSKWTI8\n7e8VUA1qc7zOv/DgwpBdOse02dSfcR3psC0w3cygZen3uS+ef2HGBD/njp6NKGQC\nwfIHegCDp9snDwmZ7/2AoC1XZD+Pdfg7VPk8Dp+aXUWp4rJ7ztWscwudLAn8S++0\n0tgNkTHtkFQ/NiNfvT/ELALEWM2+7QtXay/imBomsIyH5RCb8ERQ3ToAG4eTNY0v\nNE9eDzTAPM1fH1GzTDqg0ddhrAM8/O0/zZ7VrvmWa89Bybz42z+G38aSEq4NZHFy\nN5ZE78yE7U5rGG13geF9MO3SrI4YQmPZT3386kPvFQKBgQDvqsvCqGv6uWce24sa\nu4YacEa3ZxdM2iwvVFOLCwtjn8Naw/X9nfSPeJ6tDSb8jrfgZzBX2Xom8SeY+GZ/\nBsmVO1MX0V0qNfLxRR92xBRW3dHeGS4ZPUa1iWraj3uQJ5qgHgb/kC+YLqoumz9I\ngIw1H/t82UZYsDMI85l+sJJXDQKBgQDrfyVx1X3PlDwEQwsqKXjnSANxhnNR+p0Y\nT7pcRTw99qVRrtZi12zZloYpEpqb56MppowTjQnQURSU72hsyCq9WZj9HdkTwNAY\nAlweDauncP6e0IemXaurgXkiAAColNcA2CR+r+5DaQTRKLpyhndC+9NnJHc9HChY\ncXRcekphFQKBgApg5Q366SIkYTjO3Qk9UaNXdVh/2Fx1njA2gJ+mzMl1o6oMjlx7\nOJn16TkpNqT9MS1AirFjM4z4KHTRXO7nRld2CDUh1dz8FRcpnSExgIf6dxodEQf6\nxVMbLktkpz8o1+NTKY5rmgQHEUuPYYAsQOYUCnnvlsJEbxFWKzF3R/8JAoGADX8f\n+kIuD7ODLQtanHP8BeVOrTbzbQNb9YS8PYWKSlLUbrYCe2+1QVMrJTd3vO+tnjl5\nVbWDlnjPISoHZhSivm9gIUGQq10lj/qypNZLvDDxptB0tcgwiofFFXnCj+bX26iH\njusuUJa4O/SFmwKx2xjrqMGiQ9JVTZxS+unXUXECgYBAx0ngh1oqDnDYV6ocnPEQ\nBnvgzRZdvueFEpqdnK3fDh662VYOSda8Z6bd0scOlWZAJQks0kGV4FfEnjkldw4g\nwBUzaSOfEpi4PiOyvdfe6sbw8x4hqOj0M61QndhV7kYQKYlGn85tNqzmeKuvl4lS\nLAK5spbWsAwb9AgS9XRlnA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dariia@hospitality-tv-apps.iam.gserviceaccount.com",
+  "client_id": "104747319182029683715",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dariia%40hospitality-tv-apps.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

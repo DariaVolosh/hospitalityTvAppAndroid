@@ -3,6 +3,7 @@ package com.example.hoteltvapptemplate.useCases
 import android.content.Context
 import com.example.hoteltvapptemplate.data.repositories.ApplicationHandler
 import com.example.hoteltvapptemplate.data.repositories.ExternalAppLauncher
+import java.io.File
 import javax.inject.Inject
 
 class ApplicationsUseCase @Inject constructor(
@@ -15,5 +16,9 @@ class ApplicationsUseCase @Inject constructor(
 
     fun launchExternalApp(categoryName: String) {
         externalAppLauncher.launchExternalApp(categoryName, getContext())
+    }
+
+    fun installApk(context: Context, apkFile: File) {
+        externalAppLauncher.installApk(context, apkFile)
     }
 }

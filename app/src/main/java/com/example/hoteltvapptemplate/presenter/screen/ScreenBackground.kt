@@ -86,7 +86,7 @@ fun ScreenBackground(
                     headerAdditions()
                 }
 
-                Column {
+                /* Column {
                     Text(
                         fontSize = 35.sp,
                         text = time.value ?: "",
@@ -99,7 +99,7 @@ fun ScreenBackground(
                         fontFamily = FontFamily(Font(R.font.nokora_light)),
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
-                }
+                } */
             }
 
             mainContent(Modifier.weight(1f))

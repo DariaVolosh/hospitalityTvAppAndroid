@@ -7,7 +7,7 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = [RetrofitModule::class])
+@Component(modules = [RetrofitModule::class, AmazonS3Module::class])
 @Singleton
 interface ApplicationComponent {
     fun inject(activity: MainActivity)
