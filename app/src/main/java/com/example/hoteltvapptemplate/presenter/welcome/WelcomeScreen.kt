@@ -3,10 +3,14 @@ package com.example.hoteltvapptemplate.presenter.welcome
 import android.Manifest
 import android.content.Context
 import android.content.res.Configuration
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,6 +25,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
@@ -46,6 +52,9 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
     val welcomeViewModel = screenParameters.mainScreenViewModels.welcomeViewModel
     val availableAppVersion by welcomeViewModel.availableVersion.observeAsState()
 
+    var englishHovered by remember { mutableStateOf(false) }
+    var georgianHovered by remember { mutableStateOf(false) }
+
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -70,6 +79,8 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
         }
     }
 
+    val borderModifier = Modifier.border(2.dp, Color.White)
+
     ScreenBackground(
         screenParameters,
         updatedContext.resources.getString(R.string.welcome_to_our_hotel),
@@ -85,13 +96,17 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
         )
 
         Row(
-            modifier = Modifier.padding(top = 10.dp)
+            modifier = Modifier.padding(top = 10.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.english_language),
                 contentDescription = stringResource(R.string.english_language),
-                modifier = Modifier
-                    .padding(end = 10.dp)
+                modifier = (if (englishHovered) borderModifier else Modifier)
+                    .onFocusChanged {
+                        Log.i("LOL", it.isFocused.toString() + " en ")
+                        englishHovered = it.isFocused
+                    }.focusable()
                     .clickable {
                         val newContext = setLocale(Locale.ENGLISH, updatedContext)
                         screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
@@ -99,13 +114,17 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                         )
                         updatedContext = newContext
                     }
-                    .size(50.dp)
+                    .size(50.dp),
             )
 
             Image(
                 painter = painterResource(id = R.drawable.georgian_language),
                 contentDescription = stringResource(R.string.georgian_language),
-                modifier = Modifier
+                modifier = (if (georgianHovered) borderModifier else Modifier)
+                    .onFocusChanged {
+                        Log.i("LOL", it.isFocused.toString() + " ge ")
+                        georgianHovered = it.isFocused
+                    }.focusable()
                     .clickable {
                         val newContext = setLocale(Locale("ka"), updatedContext)
                         screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
@@ -113,7 +132,7 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                         )
                         updatedContext = newContext
                     }
-                    .size(50.dp)
+                    .size(50.dp),
             )
         }
     }
