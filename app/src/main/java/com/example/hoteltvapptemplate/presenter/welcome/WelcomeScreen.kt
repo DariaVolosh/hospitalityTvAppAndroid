@@ -3,7 +3,6 @@ package com.example.hoteltvapptemplate.presenter.welcome
 import android.Manifest
 import android.content.Context
 import android.content.res.Configuration
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -104,7 +103,6 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 contentDescription = stringResource(R.string.english_language),
                 modifier = (if (englishHovered) borderModifier else Modifier)
                     .onFocusChanged {
-                        Log.i("LOL", it.isFocused.toString() + " en ")
                         englishHovered = it.isFocused
                     }.focusable()
                     .clickable {
@@ -122,7 +120,6 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 contentDescription = stringResource(R.string.georgian_language),
                 modifier = (if (georgianHovered) borderModifier else Modifier)
                     .onFocusChanged {
-                        Log.i("LOL", it.isFocused.toString() + " ge ")
                         georgianHovered = it.isFocused
                     }.focusable()
                     .clickable {
