@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HotelTVAppTemplate</string>
     <string name="hotel_image">Hotel image</string>
-    <string name="welcome_to_our_hotel">Welcome to our hotel</string>
+    <string name="welcome_to_our_hotel">Welcome to Ramada b</string>
     <string name="we_wish_you_a_pleasant_stay">We wish you a pleasant stay</string>
     <string name="current_time">19:20</string>
     <string name="english_language">English language</string>

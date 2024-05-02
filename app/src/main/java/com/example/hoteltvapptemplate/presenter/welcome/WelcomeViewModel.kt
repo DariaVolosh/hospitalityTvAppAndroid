@@ -26,7 +26,7 @@ class WelcomeViewModel @Inject constructor(
 
     fun downloadAndInstallApk(context: Context, filesDir: File) {
         viewModelScope.launch {
-            TODO("solve the issue with app downloading")
+            // solve the issue with app downloading
             /* val file = File(filesDir, APK_OBJECT_NAME)
             file.delete()
             val inputStream = getUpdatedApplicationInputStreamUseCase.getUpdatedApplicationInputStream()
