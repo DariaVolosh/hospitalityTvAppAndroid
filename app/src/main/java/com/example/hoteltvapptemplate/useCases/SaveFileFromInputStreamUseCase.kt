@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class SaveFileFromInputStreamUseCase @Inject constructor(
     private val fileUtils: FileUtils
-){
+) {
     suspend fun saveFileFromInputStream(inputStream: InputStream, outputFile: File) {
         fileUtils.saveFileFromInputStream(inputStream, outputFile)
     }

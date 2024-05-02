@@ -43,6 +43,8 @@ android {
 
     packaging {
         resources.excludes.add("META-INF/INDEX.LIST")
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/io.netty.versions.properties")
     }
 }
 
@@ -76,4 +78,5 @@ dependencies {
     implementation("androidx.media3:media3-common:1.3.1")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
     implementation("com.amazonaws:aws-android-sdk-s3:2.16.6")
+    implementation("com.amazonaws:aws-android-sdk-ddb:2.23.0")
 }

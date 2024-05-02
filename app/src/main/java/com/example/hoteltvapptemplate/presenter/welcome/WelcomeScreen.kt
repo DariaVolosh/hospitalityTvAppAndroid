@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -42,16 +43,25 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
     val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     var updatedContext by remember { mutableStateOf(curr) }
 
+    val welcomeViewModel = screenParameters.mainScreenViewModels.welcomeViewModel
+    val availableAppVersion by welcomeViewModel.availableVersion.observeAsState()
+
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-           screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
+            screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
+            /* val currentAppVersion = curr.packageManager.getPackageInfo(curr.packageName, 0)
+            if (currentAppVersion.versionName != availableAppVersion) {
+                screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
+            } */
         }
     }
 
-    LaunchedEffect(Unit) {
-        requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    LaunchedEffect(availableAppVersion) {
+        availableAppVersion?.let {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
     }
     
     DisposableEffect(Unit) {
