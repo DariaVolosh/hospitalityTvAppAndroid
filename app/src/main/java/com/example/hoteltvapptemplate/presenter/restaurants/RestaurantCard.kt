@@ -30,6 +30,7 @@ fun RestaurantCard(
     restaurantName: String,
     restaurantDescription: String,
     openHours: String,
+    photo: Int,
     modifier: Modifier
 ) {
     Row(
@@ -41,7 +42,7 @@ fun RestaurantCard(
         horizontalArrangement = Arrangement.Start
     ) {
         Image(
-            painter = painterResource(R.drawable.restaurant_image),
+            painter = painterResource(photo),
             contentDescription = stringResource(R.string.restaurant_image),
             modifier = Modifier
                 .fillMaxHeight()

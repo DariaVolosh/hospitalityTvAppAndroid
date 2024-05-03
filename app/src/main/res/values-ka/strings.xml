@@ -1,44 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HotelTVAppTemplate</string>
-    <string name="hotel_image">Hotel image</string>
     <string name="welcome_to_our_hotel">კეთილი იყოს თქვენი მობრძანება Ramada by Wyndham Tbilisi Old City-ში</string>
     <string name="we_wish_you_a_pleasant_stay">გისურვებთ სასიამოვნო დასვენებას</string>
-    <string name="current_time">19:20</string>
-    <string name="english_language">English language</string>
-    <string name="georgian_language">Georgian language</string>
-    <string name="date">11/02/2024</string>
     <string name="tv_channels">სატელევიზიო არხები</string>
-    <string name="our_services">Ჩვენი სერვისები</string>
-    <string name="weather">Ამინდის პროგნოზი</string>
+    <string name="our_services">ჩვენი სერვისები</string>
+    <string name="weather">ამინდის პროგნოზი</string>
     <string name="hotel_info">სასტუმროს ინფორმაცია</string>
     <string name="restaurants">რესტორნები</string>
     <string name="rooms">ოთახები</string>
     <string name="variety_of_services">ჩვენ გთავაზობთ სხვადასხვა სახის მომსახურებას</string>
-    <string name="tv_channels_screen">tvChannelsScreen</string>
-    <string name="services_screen">servicesScreen</string>
-    <string name="weather_screen">weatherScreen</string>
-    <string name="hotel_info_screen">hotelInfoScreen</string>
-    <string name="restaurants_screen">restaurantsScreen</string>
-    <string name="rooms_screen">roomsScreen</string>
 
-    <string name="accommodation_services">Accommodation services</string>
-    <string name="room_booking">Room booking/reservation</string>
-    <string name="check_in">Check-in and check-out assistance</string>
-    <string name="room_cleaning">Room cleaning and housekeeping</string>
-    <string name="laundry">Laundry and dry cleaning services</string>
+    <string name="hotel_services">სასტუმროს კეთილმოწყობა</string>
+    <string name="front_desk_service">24 საათიანი წინა მაგიდა</string>
+    <string name="room_service">24 საათიანი ნომრის სერვისი</string>
+    <string name="airport_shuttle">აეროპორტის შატლი</string>
+    <string name="banquet_facilities">საბანკეტო საშუალებები</string>
 
-    <string name="dining_services">Dining and catering services</string>
-    <string name="restaurants_and_cafes">Restaurants, cafes, and bars</string>
-    <string name="room_service">Room service</string>
-    <string name="breakfast">Breakfast buffet or continental breakfast</string>
-    <string name="catering">Catering for events and conferences</string>
-
-    <string name="recreational_services">Recreational and Entertainment Services</string>
-    <string name="swimming">Swimming pool</string>
-    <string name="fitness">Fitness center or gym</string>
-    <string name="spa">Spa and wellness center</string>
-    <string name="sauna">Sauna, steam room, and hot tub</string>
 
     <string name="welcome_to_hotel">კეთილი იყოს თქვენი მობრძანება Wyndham-ის Ramada-ში</string>
     <string name="welcome_to_hotel_text">850-ზე მეტი სასტუმროთ 60+ ქვეყანაში, აუცილებლად ახლოს იქნება Ramada. თითოეული სასტუმრო აღჭურვილია ყველაფრით, რაც გჭირდებათ თქვენი ყოფნისთვის სიამოვნებისთვის — მიუხედავად იმისა, შეისწავლით ადგილობრივ ღირშესანიშნაობებს თუ დარჩებით შეხვედრებზე ან კონგრესზე.</string>
@@ -55,14 +32,26 @@
     <string name="dining">სასადილო</string>
     <string name="dining_text">Ramada Worldwide სასტუმროები ჩვენს სტუმრებს სთავაზობს სხვადასხვა მოქნილ სასადილო ვარიანტს, რათა დააკმაყოფილოს ყველა მოგზაურის საჭიროება. ადგილზე რესტორნებიდან დაწყებული ოთახების სერვისით დამთავრებული, Ramada-ს თითოეული სასტუმრო აღჭურვილია იმისთვის, რომ გაგავსოთ, როცა დაგჭირდებათ დიდი კვება ხანგრძლივი კონფერენციის შემდეგ, ან უბრალოდ წასასვლელად ჭამოთ ადგილობრივი ღირსშესანიშნაობების შესასწავლად.</string>
 
-    <string name="left_arrow">Left arrow</string>
-    <string name="right_arrow">Right arrow</string>
-    <string name="offset">offset</string>
-
-    <string name="weather_forecast">Weather forecast</string>
-    <string name="city_name">Tbilisi</string>
-    <string name="weather_wave">Weather wave</string>
-    <string name="today_forecast">Today</string>
-    <string name="tomorrow_forecast">Week</string>
-    <string name="weather_icon">Weather icon</string>
+    <string name="city_name">თბილისი</string>
+    <string name="today_forecast">დღეს</string>
+    <string name="tomorrow_forecast">კვირაში</string>
+    <string name="bar">ბარი</string>
+    <string name="buffet_breakfast">შესაძლებელია ბუფეტის საუზმე</string>
+    <string name="bus_truck_parking">ავტობუსის/სატვირთო ავტოსადგომი</string>
+    <string name="business_center">ბიზნეს ცენტრი</string>
+    <string name="accessible_amenities">ხელმისაწვდომი კეთილმოწყობა</string>
+    <string name="public_entrance">ხელმისაწვდომი საჯარო შესასვლელი</string>
+    <string name="route_to_accessible_guestrooms">ხელმისაწვდომი მარშრუტი ხელმისაწვდომი სასტუმრო ოთახებისკენ</string>
+    <string name="route_to_accessible_parking">ხელმისაწვდომი მარშრუტი ხელმისაწვდომი პარკინგისკენ</string>
+    <string name="van_parking">ხელმისაწვდომი ავტოსადგომი</string>
+    <string name="service_to_guests_with_disabilities">პერსონალი გაწვრთნილი შშმ სტუმრების მომსახურებაში</string>
+    <string name="wheelchair_accessible_elevators">ინვალიდის ეტლით მისაწვდომი ლიფტები</string>
+    <string name="our_restaurants">ჩვენი რესტორნები</string>
+    <string name="restaurant_1_name">რესტორანი განდაგანა</string>
+    <string name="restaurant_1_description">დატკბით ტრადიციული ქართული კერძებით და ადგილობრივი ლუდის სასმელით ამ ძველ სტილის რესტორანში განსაცვიფრებელი ხედებით, ულამაზესი ღვინის მარანით და ბილიარდის ოთახით.</string>
+    <string name="restaurant_2_name">არეა</string>
+    <string name="restaurant_2_description">მიირთვით პანორამული ხედები საერთაშორისო და ქართული კერძებით ჭამისას ან ბარიდან გამაგრილებელი სასმელების მირთმევისას.</string>
+    <string name="restaurant_3_name">ლობი ბარი</string>
+    <string name="restaurant_3_description">ისიამოვნეთ გამაგრილებელი სასმელებითა და გემრიელი საჭმელებით მთელი დღის განმავლობაში ამ მოსახერხებელ ადგილას - იდეალურია ჩვეულებრივი საქმიანი შეხვედრებისთვის ან მეგობრებთან შესახვედრად.</string>
+    <string name="open_horus">ღია საათები</string>
 </resources>

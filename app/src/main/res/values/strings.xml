@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">HotelTVAppTemplate</string>
-    <string name="hotel_image">Hotel image</string>
+    <string name="app_name" translatable="false">HotelTVAppTemplate</string>
+    <string name="hotel_image" translatable="false">Hotel image</string>
     <string name="welcome_to_our_hotel">Welcome to Ramada by Wyndham Tbilisi Old City</string>
     <string name="we_wish_you_a_pleasant_stay">We wish you a pleasant stay</string>
-    <string name="current_time">19:20</string>
-    <string name="english_language">English language</string>
-    <string name="georgian_language">Georgian language</string>
-    <string name="date">11/02/2024</string>
-    <string name="youtube">Youtube</string>
+    <string name="current_time" translatable="false">19:20</string>
+    <string name="english_language" translatable="false">English language</string>
+    <string name="georgian_language" translatable="false">Georgian language</string>
+    <string name="date" translatable="false">11/02/2024</string>
+    <string name="youtube" translatable="false">Youtube</string>
     <string name="tv_channels">Tv channels</string>
     <string name="our_services">Our services</string>
     <string name="weather">Weather</string>
@@ -16,33 +16,33 @@
     <string name="rooms">Rooms</string>
     <string name="variety_of_services">We provide a variety of services</string>
 
-    <string name="youtube_screen">youtubeScreen</string>
-    <string name="welcome_screen">welcomeScreen</string>
-    <string name="tv_channels_screen">tvChannelsScreen</string>
-    <string name="services_screen">servicesScreen</string>
-    <string name="weather_screen">weatherScreen</string>
-    <string name="hotel_info_screen">hotelInfoScreen</string>
-    <string name="restaurants_screen">restaurantsScreen</string>
-    <string name="rooms_screen">roomsScreen</string>
-    <string name="watch_channel_screen">watchChannelScreen</string>
+    <string name="youtube_screen" translatable="false">youtubeScreen</string>
+    <string name="welcome_screen" translatable="false">welcomeScreen</string>
+    <string name="tv_channels_screen" translatable="false">tvChannelsScreen</string>
+    <string name="services_screen" translatable="false">servicesScreen</string>
+    <string name="weather_screen" translatable="false">weatherScreen</string>
+    <string name="hotel_info_screen" translatable="false">hotelInfoScreen</string>
+    <string name="restaurants_screen" translatable="false">restaurantsScreen</string>
+    <string name="rooms_screen" translatable="false">roomsScreen</string>
+    <string name="watch_channel_screen" translatable="false">watchChannelScreen</string>
 
-    <string name="accommodation_services">Accommodation services</string>
-    <string name="room_booking">Room booking/reservation</string>
-    <string name="check_in">Check-in and check-out assistance</string>
-    <string name="room_cleaning">Room cleaning and housekeeping</string>
-    <string name="laundry">Laundry and dry cleaning services</string>
-
-    <string name="dining_services">Dining and catering services</string>
-    <string name="restaurants_and_cafes">Restaurants, cafes, and bars</string>
-    <string name="room_service">Room service</string>
-    <string name="breakfast">Breakfast buffet or continental breakfast</string>
-    <string name="catering">Catering for events and conferences</string>
-
-    <string name="recreational_services">Recreational and Entertainment Services</string>
-    <string name="swimming">Swimming pool</string>
-    <string name="fitness">Fitness center or gym</string>
-    <string name="spa">Spa and wellness center</string>
-    <string name="sauna">Sauna, steam room, and hot tub</string>
+    <string name="hotel_services">Hotel amenities</string>
+    <string name="front_desk_service">24-Hour Front Desk</string>
+    <string name="room_service">24-Hour Room Service</string>
+    <string name="airport_shuttle">Airport Shuttle</string>
+    <string name="banquet_facilities">Banquet Facilities</string>
+    <string name="bar">Bar</string>
+    <string name="buffet_breakfast">Buffet Breakfast Available</string>
+    <string name="bus_truck_parking">Bus/Truck Parking</string>
+    <string name="business_center">Business Center</string>
+    
+    <string name="accessible_amenities">Accessible amenities</string>
+    <string name="public_entrance">Accessible Public Entrance</string>
+    <string name="route_to_accessible_guestrooms">Accessible Route to Accessible Guestrooms</string>
+    <string name="route_to_accessible_parking">Accessible Route to Accessible Parking</string>
+    <string name="van_parking">Accessible van parking</string>
+    <string name="service_to_guests_with_disabilities">Staff Trained in Service to Guests with Disabilities</string>
+    <string name="wheelchair_accessible_elevators">Wheelchair Accessible Elevators</string>
 
     <string name="welcome_to_hotel">Welcome to Ramada by Wyndham</string>
     <string name="welcome_to_hotel_text">With more than 850 hotels across 60+ countries, there\'s bound to be a Ramada nearby. Each hotel is equipped with everything you need to enjoy your stay—whether you\'re exploring the local sights or staying for a meeting or convention.</string>
@@ -59,35 +59,31 @@
     <string name="dining">Dining</string>
     <string name="dining_text">Ramada Worldwide hotels provide our guests with a variety of flexible dining options to meet every traveler\'s needs. From on-site restaurants to room service, each Ramada hotel is equipped to fill you up when you need a large meal after a long conference, or simply to grab a bite on your way out to explore the local sights.</string>
 
-    <string name="left_arrow">Left arrow</string>
-    <string name="right_arrow">Right arrow</string>
-    <string name="offset">offset</string>
+    <string name="left_arrow" translatable="false">Left arrow</string>
+    <string name="right_arrow" translatable="false">Right arrow</string>
+    <string name="offset" translatable="false">offset</string>
 
-    <string name="weather_forecast">Weather forecast</string>
+    <string name="weather_forecast" translatable="false">Weather forecast</string>
     <string name="city_name">Tbilisi</string>
-    <string name="weather_wave">Weather wave</string>
+    <string name="weather_wave" translatable="false">Weather wave</string>
     <string name="today_forecast">Today</string>
     <string name="tomorrow_forecast">Week</string>
-    <string name="weather_icon">Weather icon</string>
+    <string name="weather_icon" translatable="false">Weather icon</string>
 
     <string name="our_restaurants">Our restaurants</string>
-    <string name="restaurant_image">Restaurant image</string>
+    <string name="restaurant_image" translatable="false">Restaurant image</string>
 
-    <string name="restaurant_1_name">Restaurant 1</string>
-    <string name="restaurant_1_description">Description 1</string>
-    <string name="restaurant_1_open_hours">07:00-23:00</string>
+    <string name="restaurant_1_name">Gandagana Restaurant</string>
+    <string name="restaurant_1_description">Delight in traditional Georgian fare and local draft beers in this old-style restaurant with stunning views, a beautiful wine cellar, and billiard room.</string>
+    <string name="restaurant_1_open_hours" translatable="false">12:00–00:00</string>
 
-    <string name="restaurant_2_name">Restaurant 2</string>
-    <string name="restaurant_2_description">Description 2</string>
-    <string name="restaurant_2_open_hours">07:00-23:00</string>
+    <string name="restaurant_2_name">Area</string>
+    <string name="restaurant_2_description">Savor panoramic views while dining on international and Georgian dishes or sipping on refreshing drinks from the bar.</string>
+    <string name="restaurant_2_open_hours" translatable="false">12:00–00:00</string>
 
-    <string name="restaurant_3_name">Restaurant 3</string>
-    <string name="restaurant_3_description">Description 3</string>
-    <string name="restaurant_3_open_hours">07:00-23:00</string>
-
-    <string name="restaurant_4_name">Restaurant 4</string>
-    <string name="restaurant_4_description">Description 4</string>
-    <string name="restaurant_4_open_hours">07:00-23:00</string>
+    <string name="restaurant_3_name">Lobby Bar</string>
+    <string name="restaurant_3_description">Enjoy refreshing drinks and tasty snacks all day at this convenient spot—perfect for casual business meetings or catching up with friends.</string>
+    <string name="restaurant_3_open_hours" translatable="false">12:00–00:00</string>
 
     <string name="open_horus">Open horus</string>
 
@@ -97,16 +93,16 @@
     <string name="room_4">Room type 4</string>
     <string name="room_5">Room type 5</string>
     <string name="room_6">Room type 6</string>
-    <string name="room">Room</string>
+    <string name="room" translatable="false">Room</string>
 
-    <string name="channel_logo_text">Channel logo</string>
+    <string name="channel_logo_text" translatable="false">Channel logo</string>
 
-    <string name="ok_tv_package_name">ag.sarpi</string>
-    <string name="ok_tv_main_activity_name">ag.sarpi.LoginActivity</string>
+    <string name="ok_tv_package_name" translatable="false">ag.sarpi</string>
+    <string name="ok_tv_main_activity_name" translatable="false">ag.sarpi.LoginActivity</string>
 
-    <string name="tivimate_package_name">ar.tvplayer.tv</string>
-    <string name="tivimate_main_activity_name">ar.tvplayer.tv.ui.MainActivity</string>
+    <string name="tivimate_package_name" translatable="false">ar.tvplayer.tv</string>
+    <string name="tivimate_main_activity_name" translatable="false">ar.tvplayer.tv.ui.MainActivity</string>
 
-    <string name="youtube_package_name">com.google.android.youtube</string>
-    <string name="youtube_main_activity_name">com.google.android.apps.youtube.app.application.Shell_HomeActivity</string>
+    <string name="youtube_package_name" translatable="false">com.google.android.youtube</string>
+    <string name="youtube_main_activity_name" translatable="false">com.google.android.apps.youtube.app.application.Shell_HomeActivity</string>
 </resources>
