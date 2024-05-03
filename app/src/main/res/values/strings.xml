@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HotelTVAppTemplate</string>
     <string name="hotel_image">Hotel image</string>
-    <string name="welcome_to_our_hotel">Welcome to Ramada b</string>
+    <string name="welcome_to_our_hotel">Welcome to Ramada by Wyndham Tbilisi Old City</string>
     <string name="we_wish_you_a_pleasant_stay">We wish you a pleasant stay</string>
     <string name="current_time">19:20</string>
     <string name="english_language">English language</string>
@@ -44,20 +44,21 @@
     <string name="spa">Spa and wellness center</string>
     <string name="sauna">Sauna, steam room, and hot tub</string>
 
-    <string name="welcome_to_hotel">Welcome to [Hotel Name]</string>
-    <string name="welcome_to_hotel_text">Nestled in the heart of [City or Location], [Hotel Name] stands as a beacon of luxury and hospitality. Our story began over [Number of Years] years ago when our founders envisioned a haven where travelers could find solace amidst the bustling city life.</string>
+    <string name="welcome_to_hotel">Welcome to Ramada by Wyndham</string>
+    <string name="welcome_to_hotel_text">With more than 850 hotels across 60+ countries, there\'s bound to be a Ramada nearby. Each hotel is equipped with everything you need to enjoy your stay—whether you\'re exploring the local sights or staying for a meeting or convention.</string>
 
-    <string name="our_story">Our story</string>
-    <string name="our_story_text">[Hotel Name] was founded in [Year] by [Founder\'s Name], a visionary entrepreneur with a passion for hospitality. From humble beginnings as a small inn, we have grown into a prestigious landmark known for our exceptional service and timeless elegance.</string>
+    <string name="our_top_destinations">Our Top Global Destinations</string>
+    <string name="our_top_destinations_text">Our diverse set of global locales will impress any world traveler with an extraordinary experience. Sample new locations, cultures, and landscapes.</string>
 
-    <string name="luxury">A Sanctuary of Luxury</string>
-    <string name="luxury_text">Step into our lobby and be greeted by the harmonious blend of modern sophistication and classic charm. Each of our [Number of Rooms] rooms and suites is meticulously designed to provide the utmost comfort and relaxation for our guests. Whether you\'re here for business or leisure, we offer a sanctuary where every detail is crafted to perfection.</string>
+    <string name="say_hello_to_red">Say Hello to Red®</string>
+    <string name="say_hello_to_red_text">Make your way to new places and we\'ll be there to welcome you with a smile everywhere you go.</string>
 
-    <string name="dining">Exceptional Dining Experience</string>
-    <string name="dining_text">Indulge your senses at our renowned restaurants, where culinary masterpieces are crafted with the finest ingredients. From exquisite fine dining to casual gatherings, our culinary offerings cater to every palate and occasion. Enjoy a symphony of flavors that will tantalize your taste buds and leave you craving for more.</string>
+    <string name="room_and_amenities">Room &amp; Amenities</string>
+    <string name="room_and_amenities_text">Ramada Worldwide offers a warm and friendly stay no matter where you travel around the world. Our guests enjoy high-speed wireless Internet access, cozy beds for a relaxed and restful stay, and a variety of hotel choices to match every trip; from a family vacation or weekend getaway, to a full-scale conference or wedding. We are committed to creating caring experiences for every person, every time, and strive to make our guests feel truly refreshed and restored during their visit.</string>
 
-    <string name="events">Unforgettable Events</string>
-    <string name="events_text">Celebrate life\'s special moments in our elegant event spaces, where every occasion is transformed into an unforgettable experience. Whether you\'re planning a wedding, corporate meeting, or social gathering, our dedicated team will ensure that every detail is executed flawlessly, leaving you free to savor the moment.</string>
+    <string name="dining">Dining</string>
+    <string name="dining_text">Ramada Worldwide hotels provide our guests with a variety of flexible dining options to meet every traveler\'s needs. From on-site restaurants to room service, each Ramada hotel is equipped to fill you up when you need a large meal after a long conference, or simply to grab a bite on your way out to explore the local sights.</string>
+
     <string name="left_arrow">Left arrow</string>
     <string name="right_arrow">Right arrow</string>
     <string name="offset">offset</string>

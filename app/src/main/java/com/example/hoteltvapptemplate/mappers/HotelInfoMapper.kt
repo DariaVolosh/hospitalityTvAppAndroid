@@ -15,17 +15,17 @@ class HotelInfoMapper @Inject constructor(
             getString(R.string.welcome_to_hotel) to
                 getString(R.string.welcome_to_hotel_text),
 
-            getString(R.string.our_story) to
-                getString(R.string.our_story_text),
+            getString(R.string.our_top_destinations) to
+                getString(R.string.our_top_destinations_text),
 
-            getString(R.string.luxury) to
-                getString(R.string.luxury_text),
+            getString(R.string.say_hello_to_red) to
+                getString(R.string.say_hello_to_red_text),
+
+            getString(R.string.room_and_amenities) to
+                getString(R.string.room_and_amenities_text),
 
             getString(R.string.dining) to
-                getString(R.string.dining_text),
-
-            getString(R.string.events) to
-                getString(R.string.events_text)
+                getString(R.string.dining_text)
         )
 
         infoHeaderToDescriptionMapper = newMapper

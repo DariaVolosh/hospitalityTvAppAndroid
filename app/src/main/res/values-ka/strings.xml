@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">HotelTVAppTemplate</string>
     <string name="hotel_image">Hotel image</string>
-    <string name="welcome_to_our_hotel">კეთილი იყოს თქვენი მობრძანება ჩვენს სასტუმროში</string>
+    <string name="welcome_to_our_hotel">კეთილი იყოს თქვენი მობრძანება Ramada by Wyndham Tbilisi Old City-ში</string>
     <string name="we_wish_you_a_pleasant_stay">გისურვებთ სასიამოვნო დასვენებას</string>
     <string name="current_time">19:20</string>
     <string name="english_language">English language</string>
@@ -40,20 +40,20 @@
     <string name="spa">Spa and wellness center</string>
     <string name="sauna">Sauna, steam room, and hot tub</string>
 
-    <string name="welcome_to_hotel">Welcome to [Hotel Name]</string>
-    <string name="welcome_to_hotel_text">Nestled in the heart of [City or Location], [Hotel Name] stands as a beacon of luxury and hospitality. Our story began over [Number of Years] years ago when our founders envisioned a haven where travelers could find solace amidst the bustling city life.</string>
+    <string name="welcome_to_hotel">კეთილი იყოს თქვენი მობრძანება Wyndham-ის Ramada-ში</string>
+    <string name="welcome_to_hotel_text">850-ზე მეტი სასტუმროთ 60+ ქვეყანაში, აუცილებლად ახლოს იქნება Ramada. თითოეული სასტუმრო აღჭურვილია ყველაფრით, რაც გჭირდებათ თქვენი ყოფნისთვის სიამოვნებისთვის — მიუხედავად იმისა, შეისწავლით ადგილობრივ ღირშესანიშნაობებს თუ დარჩებით შეხვედრებზე ან კონგრესზე.</string>
 
-    <string name="our_story">Our story</string>
-    <string name="our_story_text">[Hotel Name] was founded in [Year] by [Founder\'s Name], a visionary entrepreneur with a passion for hospitality. From humble beginnings as a small inn, we have grown into a prestigious landmark known for our exceptional service and timeless elegance.</string>
+    <string name="our_top_destinations">ჩვენი საუკეთესო გლობალური მიმართულებები</string>
+    <string name="our_top_destinations_text">ჩვენი მრავალფეროვანი გლობალური ლოკალური ნაკრები შთაბეჭდილებას მოახდენს მსოფლიოს ნებისმიერ მოგზაურზე არაჩვეულებრივი გამოცდილებით. აიღეთ ახალი ადგილები, კულტურები და პეიზაჟები.</string>
 
-    <string name="luxury">A Sanctuary of Luxury</string>
-    <string name="luxury_text">Step into our lobby and be greeted by the harmonious blend of modern sophistication and classic charm. Each of our [Number of Rooms] rooms and suites is meticulously designed to provide the utmost comfort and relaxation for our guests. Whether you\'re here for business or leisure, we offer a sanctuary where every detail is crafted to perfection.</string>
+    <string name="say_hello_to_red">მიესალმები Red®-ს</string>
+    <string name="say_hello_to_red_text">გაიარეთ გზა ახალი ადგილებისკენ და ჩვენ იქ ვიქნებით, რომ მოგესალმოთ ღიმილით, სადაც არ უნდა წახვიდეთ.</string>
 
-    <string name="dining">Exceptional Dining Experience</string>
-    <string name="dining_text">Indulge your senses at our renowned restaurants, where culinary masterpieces are crafted with the finest ingredients. From exquisite fine dining to casual gatherings, our culinary offerings cater to every palate and occasion. Enjoy a symphony of flavors that will tantalize your taste buds and leave you craving for more.</string>
+    <string name="room_and_amenities">ოთახი და კეთილმოწყობა</string>
+    <string name="room_and_amenities_text">Ramada Worldwide გთავაზობთ თბილ და მეგობრულ დასვენებას, მიუხედავად იმისა, თუ სად მოგზაურობთ მთელ მსოფლიოში. ჩვენი სტუმრები სარგებლობენ მაღალსიჩქარიანი უსადენო ინტერნეტით, მყუდრო საწოლებით მოდუნებული და დასვენებისთვის და სასტუმროს მრავალფეროვნებით, ყველა მოგზაურობისთვის; ოჯახური შვებულებიდან ან შაბათ-კვირის დასვენებიდან, სრულმასშტაბიან კონფერენციამდე ან ქორწილამდე. ჩვენ მზად ვართ შევქმნათ მზრუნველი გამოცდილება ყველა ადამიანისთვის, ყოველ ჯერზე და ვცდილობთ, რომ სტუმრებმა თავი იგრძნონ ჭეშმარიტად განახლებულად და აღდგენილი ვიზიტის დროს.</string>
 
-    <string name="events">Unforgettable Events</string>
-    <string name="events_text">Celebrate life\'s special moments in our elegant event spaces, where every occasion is transformed into an unforgettable experience. Whether you\'re planning a wedding, corporate meeting, or social gathering, our dedicated team will ensure that every detail is executed flawlessly, leaving you free to savor the moment.</string>
+    <string name="dining">სასადილო</string>
+    <string name="dining_text">Ramada Worldwide სასტუმროები ჩვენს სტუმრებს სთავაზობს სხვადასხვა მოქნილ სასადილო ვარიანტს, რათა დააკმაყოფილოს ყველა მოგზაურის საჭიროება. ადგილზე რესტორნებიდან დაწყებული ოთახების სერვისით დამთავრებული, Ramada-ს თითოეული სასტუმრო აღჭურვილია იმისთვის, რომ გაგავსოთ, როცა დაგჭირდებათ დიდი კვება ხანგრძლივი კონფერენციის შემდეგ, ან უბრალოდ წასასვლელად ჭამოთ ადგილობრივი ღირსშესანიშნაობების შესასწავლად.</string>
 
     <string name="left_arrow">Left arrow</string>
     <string name="right_arrow">Right arrow</string>

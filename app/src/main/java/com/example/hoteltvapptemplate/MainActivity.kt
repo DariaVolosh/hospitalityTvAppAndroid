@@ -67,9 +67,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-fun MainScreen(
-    screenParameters: ScreenParameters
-) {
+fun MainScreen(screenParameters: ScreenParameters) {
     val navController = rememberNavController()
     screenParameters.navigationHandler.setNavController(navController)
 
