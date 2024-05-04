@@ -48,6 +48,7 @@ fun ScreenBackground(
         )
     )
 
+    // rendering image in a high resolution (4k) makes the application slower (maximum hd quality)
     Box {
         Image(
             painter = painterResource(R.drawable.hotel_image),
