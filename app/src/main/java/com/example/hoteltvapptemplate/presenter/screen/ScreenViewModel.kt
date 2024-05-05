@@ -2,9 +2,7 @@ package com.example.hoteltvapptemplate.presenter.screen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.hoteltvapptemplate.useCases.GetTimeAndDateUseCase
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,11 +18,11 @@ class ScreenViewModel @Inject constructor(
     var isWelcomeScreen = MutableLiveData(true)
 
     init {
-        viewModelScope.launch {
+        /* viewModelScope.launch {
             getTimeAndDateUseCase.getTimeAndDateFlow().collect { timeAndDate ->
                 if (timeAndDate.first != time.value) time.postValue(timeAndDate.first)
                 if (timeAndDate.second != date.value) date.postValue(timeAndDate.second)
             }
-        }
+        } */
     }
 }

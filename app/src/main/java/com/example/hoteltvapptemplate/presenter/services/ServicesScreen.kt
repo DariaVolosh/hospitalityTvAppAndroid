@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun ServicesScreen(screenParameters: ScreenParameters) {
-    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.get().getContext()
     val updatedContext by remember { mutableStateOf(curr) }
     var services by remember { mutableStateOf(listOf<String>()) }
     var specificServices by remember { mutableStateOf(listOf<List<String>>()) }
@@ -34,9 +34,9 @@ fun ServicesScreen(screenParameters: ScreenParameters) {
     val servicesViewModel = screenParameters.mainScreenViewModels.servicesViewModel
 
     LaunchedEffect(key1 = updatedContext) {
-        servicesViewModel.setMapperContext(updatedContext)
-        services = servicesViewModel.getServices().toList()
-        specificServices = servicesViewModel.getSpecificServices().toList()
+        servicesViewModel.get().setMapperContext(updatedContext)
+        services = servicesViewModel.get().getServices().toList()
+        specificServices = servicesViewModel.get().getSpecificServices().toList()
     }
 
     val scrollState = rememberLazyListState()
@@ -50,6 +50,7 @@ fun ServicesScreen(screenParameters: ScreenParameters) {
         screenParameters,
         updatedContext.resources.getString(R.string.variety_of_services),
         updatedContext,
+        null,
         {modifier ->
             LazyColumn(
                 state = scrollState,

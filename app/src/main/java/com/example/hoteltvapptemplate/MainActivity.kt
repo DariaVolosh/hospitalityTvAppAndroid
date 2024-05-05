@@ -11,9 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hoteltvapptemplate.presenter.ApplicationsViewModel
 import com.example.hoteltvapptemplate.presenter.NavigationHandler
 import com.example.hoteltvapptemplate.presenter.categories.CategoriesViewModel
-import com.example.hoteltvapptemplate.presenter.channels.ChannelsList
-import com.example.hoteltvapptemplate.presenter.channels.PlaylistURLViewModel
-import com.example.hoteltvapptemplate.presenter.channels.WatchChannel
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoScreen
 import com.example.hoteltvapptemplate.presenter.hotelInfo.HotelInfoViewModel
 import com.example.hoteltvapptemplate.presenter.restaurants.RestaurantsScreen
@@ -23,24 +20,21 @@ import com.example.hoteltvapptemplate.presenter.rooms.RoomsViewModel
 import com.example.hoteltvapptemplate.presenter.screen.ScreenViewModel
 import com.example.hoteltvapptemplate.presenter.services.ServicesScreen
 import com.example.hoteltvapptemplate.presenter.services.ServicesViewModel
-import com.example.hoteltvapptemplate.presenter.weather.WeatherScreen
-import com.example.hoteltvapptemplate.presenter.weather.WeatherViewModel
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeScreen
 import com.example.hoteltvapptemplate.presenter.welcome.WelcomeViewModel
 import com.example.hoteltvapptemplate.ui.theme.TvAppTheme
+import dagger.Lazy
 import javax.inject.Inject
 
 data class MainScreenViewModels @Inject constructor(
-    val welcomeViewModel: WelcomeViewModel,
-    val screenViewModel: ScreenViewModel,
-    val categoriesViewModel: CategoriesViewModel,
-    val servicesViewModel: ServicesViewModel,
-    val hotelInfoViewModel: HotelInfoViewModel,
-    val weatherViewModel: WeatherViewModel,
-    val restaurantsViewModel: RestaurantsViewModel,
-    val roomsViewModel: RoomsViewModel,
-    val playlistURLViewModel: PlaylistURLViewModel,
-    val applicationsViewModel: ApplicationsViewModel
+    val welcomeViewModel: Lazy<WelcomeViewModel>,
+    val screenViewModel: Lazy<ScreenViewModel>,
+    val categoriesViewModel: Lazy<CategoriesViewModel>,
+    val servicesViewModel: Lazy<ServicesViewModel>,
+    val hotelInfoViewModel: Lazy<HotelInfoViewModel>,
+    val restaurantsViewModel: Lazy<RestaurantsViewModel>,
+    val roomsViewModel: Lazy<RoomsViewModel>,
+    val applicationsViewModel: Lazy<ApplicationsViewModel>
 )
 
 data class ScreenParameters @Inject constructor(
@@ -87,24 +81,12 @@ fun MainScreen(screenParameters: ScreenParameters) {
             HotelInfoScreen(screenParameters)
         }
 
-        composable("weatherScreen") {
-            WeatherScreen(screenParameters)
-        }
-
         composable("restaurantsScreen") {
             RestaurantsScreen(screenParameters)
         }
 
         composable("roomsScreen") {
             RoomsScreen(screenParameters)
-        }
-
-        composable("tvChannelsScreen") {
-            ChannelsList(screenParameters)
-        }
-
-        composable("watchChannelScreen/{channelUrl}") {
-            WatchChannel(it.arguments?.getString("channelUrl") ?: "")
         }
     }
 }

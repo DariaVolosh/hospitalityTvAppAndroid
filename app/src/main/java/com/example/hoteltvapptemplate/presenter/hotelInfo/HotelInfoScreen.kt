@@ -1,32 +1,31 @@
 package com.example.hoteltvapptemplate.presenter.hotelInfo
 
-import androidx.compose.animation.core.animateIntOffsetAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.ui.PlayerView
 import com.example.hoteltvapptemplate.R
 import com.example.hoteltvapptemplate.ScreenParameters
 import com.example.hoteltvapptemplate.presenter.screen.ScreenBackground
-import kotlinx.coroutines.delay
+import com.example.hoteltvapptemplate.ui.theme.md_theme_dark_black_transparent
 
-@Composable
+/* @Composable
 fun getTextOffset(initial: Int) = animateIntOffsetAsState(
         targetValue = IntOffset(
             when (initial) {
@@ -37,9 +36,8 @@ fun getTextOffset(initial: Int) = animateIntOffsetAsState(
         ),
         label = stringResource(R.string.offset),
         animationSpec = tween(durationMillis = 1000)
-    )
-
-@Composable
+    ) */
+/* @Composable
 fun HotelInfoScreen(screenParameters: ScreenParameters) {
     val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
     val updatedContext by remember { mutableStateOf(curr) }
@@ -109,6 +107,72 @@ fun HotelInfoScreen(screenParameters: ScreenParameters) {
                         .padding(horizontal = 25.dp)
                         .size(35.dp)
                 )
+            }
+        }
+    ) {}
+} */
+
+
+@Composable
+fun HotelInfoScreen(
+    screenParameters: ScreenParameters
+) {
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.get().getContext()
+    val updatedContext by remember { mutableStateOf(curr) }
+
+    var isReadyToPlay by remember { mutableStateOf(false) }
+
+    val myPlayer = ExoPlayer
+        .Builder(LocalContext.current)
+        .build()
+
+    LaunchedEffect(Unit) {
+        myPlayer.setMediaItem(MediaItem.fromUri("asset:///hotel_video.mp4"))
+        myPlayer.repeatMode = Player.REPEAT_MODE_ONE
+
+        myPlayer.addListener(object: Player.Listener {
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                if (playbackState == 3) isReadyToPlay = true
+                super.onPlaybackStateChanged(playbackState)
+            }
+        })
+        myPlayer.prepare()
+        myPlayer.play()
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            myPlayer.release()
+        }
+    }
+
+    val brush = Brush.verticalGradient(
+        listOf(
+            md_theme_dark_black_transparent,
+            md_theme_dark_black_transparent
+        )
+    )
+
+    ScreenBackground(
+        screenParameters,
+        headerText = updatedContext.getString(R.string.welcome_to_hotel),
+        updatedContext = updatedContext,
+        brush,
+        mainContent = {
+            Box(
+                modifier = it
+                    .padding(bottom = 30.dp)
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                AndroidView(factory = {
+                    context -> PlayerView(context).apply {
+                        player = myPlayer
+                        useController = false
+                    }
+                })
+
+                if (!isReadyToPlay) CircularProgressIndicator()
             }
         }
     ) {}

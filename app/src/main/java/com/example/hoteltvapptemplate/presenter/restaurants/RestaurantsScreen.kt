@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 fun RestaurantsScreen(
     screenParameters: ScreenParameters
 ) {
-    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.get().getContext()
     val updatedContext by remember { mutableStateOf(curr) }
     var restaurantsPhotos by remember { mutableStateOf<List<Int>>(listOf()) }
     var restaurantsInformation by remember { mutableStateOf<List<Restaurant>>(listOf()) }
@@ -34,12 +34,12 @@ fun RestaurantsScreen(
     val restaurantsViewModel = screenParameters.mainScreenViewModels.restaurantsViewModel
 
     val isCategoriesFocused by screenParameters
-        .mainScreenViewModels.categoriesViewModel.isFocused.observeAsState()
+        .mainScreenViewModels.categoriesViewModel.get().isFocused.observeAsState()
 
     LaunchedEffect(updatedContext) {
-        restaurantsViewModel.setMapperContext(updatedContext)
-        restaurantsPhotos = restaurantsViewModel.getPhotos().toList()
-        restaurantsInformation = restaurantsViewModel.getRestaurantsInformation().toList()
+        restaurantsViewModel.get().setMapperContext(updatedContext)
+        restaurantsPhotos = restaurantsViewModel.get().getPhotos().toList()
+        restaurantsInformation = restaurantsViewModel.get().getRestaurantsInformation().toList()
     }
 
     val scrollState = rememberLazyListState()
@@ -50,6 +50,7 @@ fun RestaurantsScreen(
         screenParameters,
         updatedContext.resources.getString(R.string.our_restaurants),
         updatedContext,
+        null,
         { modifier ->
             LazyColumn(
                 state = scrollState,

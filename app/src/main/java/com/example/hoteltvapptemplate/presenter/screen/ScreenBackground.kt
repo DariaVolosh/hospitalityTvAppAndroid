@@ -35,11 +35,12 @@ fun ScreenBackground(
     screenParameters: ScreenParameters,
     headerText: String,
     updatedContext: Context,
+    backgroundColor: Brush?,
     mainContent: @Composable (modifier: Modifier) -> Unit,
     headerAdditions: @Composable () -> Unit
 ) {
-    val date = screenParameters.mainScreenViewModels.screenViewModel.date.observeAsState()
-    val time = screenParameters.mainScreenViewModels.screenViewModel.time.observeAsState()
+    val date = screenParameters.mainScreenViewModels.screenViewModel.get().date.observeAsState()
+    val time = screenParameters.mainScreenViewModels.screenViewModel.get().time.observeAsState()
 
     val brush = Brush.verticalGradient(
         listOf(
@@ -59,7 +60,7 @@ fun ScreenBackground(
                 .drawWithCache {
                     onDrawWithContent {
                         drawContent()
-                        drawRect(brush)
+                        drawRect(backgroundColor ?: brush)
                     }
                 }
         )

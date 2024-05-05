@@ -22,10 +22,10 @@ import kotlinx.coroutines.launch
 fun RoomsScreen(
     screenParameters: ScreenParameters
 ) {
-    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.get().getContext()
     val updatedContext by remember { mutableStateOf(curr) }
 
-    val roomsList = screenParameters.mainScreenViewModels.roomsViewModel.getRoomsData()
+    val roomsList = screenParameters.mainScreenViewModels.roomsViewModel.get().getRoomsData()
     var roomsRow = 0
 
     val scrollState = rememberLazyListState()
@@ -35,6 +35,7 @@ fun RoomsScreen(
         screenParameters,
         updatedContext.getString(R.string.rooms),
         updatedContext,
+        null,
         { modifier ->
             LazyColumn(
                 state = scrollState,
@@ -62,7 +63,7 @@ fun RoomsScreen(
                             Key.DirectionDown -> {
                                 if (roomsRow + 1 < roomsList.size / 2) {
                                     scope.launch {
-                                        scrollState.animateScrollToItem(roomsRow+1)
+                                        scrollState.animateScrollToItem(roomsRow + 1)
                                         roomsRow++
                                     }
                                     true

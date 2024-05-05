@@ -30,15 +30,15 @@ fun CategoriesRow(
 
     var currentNames by remember { mutableStateOf<Set<String>>(setOf()) }
 
-    val categoriesViewModel = screenParameters.mainScreenViewModels.categoriesViewModel
+    val categoriesViewModel = screenParameters.mainScreenViewModels.categoriesViewModel.get()
 
     LaunchedEffect(key1 = updatedContext) {
         categoriesViewModel.setMapperContext(updatedContext)
         currentNames = categoriesViewModel.getCategoriesNames()
     }
 
-    val expanded by screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.observeAsState()
-    val focused by screenParameters.mainScreenViewModels.categoriesViewModel.isFocused.observeAsState()
+    val expanded by screenParameters.mainScreenViewModels.screenViewModel.get().isWelcomeScreen.observeAsState()
+    val focused by screenParameters.mainScreenViewModels.categoriesViewModel.get().isFocused.observeAsState()
 
     Row(
         modifier = Modifier
@@ -46,7 +46,7 @@ fun CategoriesRow(
             .height(if (expanded == true || focused == true) 150.dp else 75.dp)
             .fillMaxWidth()
             .onFocusChanged {
-                screenParameters.mainScreenViewModels.categoriesViewModel.isFocused.postValue(it.isFocused)
+                screenParameters.mainScreenViewModels.categoriesViewModel.get().isFocused.postValue(it.isFocused)
             }
             .background(MaterialTheme.colorScheme.primaryContainer),
         horizontalArrangement = if (expanded == true || focused == true) Arrangement.SpaceBetween
@@ -60,7 +60,7 @@ fun CategoriesRow(
                            else Modifier.padding(horizontal = 8.dp),
             ) {
                 if (c == updatedContext.getString(R.string.tv_channels) || c == updatedContext.getString(R.string.youtube)) {
-                    screenParameters.mainScreenViewModels.applicationsViewModel.launchExternalApp(c)
+                    screenParameters.mainScreenViewModels.applicationsViewModel.get().launchExternalApp(c)
                 } else {
                     screenParameters.navigationHandler.navigateToCategory(
                         categoriesViewModel.mapScreenName(c)

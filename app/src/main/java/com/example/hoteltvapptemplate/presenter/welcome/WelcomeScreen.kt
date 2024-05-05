@@ -24,6 +24,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -45,20 +47,24 @@ fun setLocale(locale: Locale, oldContext: Context): Context {
 
 @Composable
 fun WelcomeScreen(screenParameters: ScreenParameters) {
-    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.getContext()
+    val curr = screenParameters.mainScreenViewModels.applicationsViewModel.get().getContext()
     var updatedContext by remember { mutableStateOf(curr) }
 
-    val welcomeViewModel = screenParameters.mainScreenViewModels.welcomeViewModel
+    val welcomeViewModel = screenParameters.mainScreenViewModels.welcomeViewModel.get()
     val availableAppVersion by welcomeViewModel.availableVersion.observeAsState()
 
     var englishHovered by remember { mutableStateOf(false) }
     var georgianHovered by remember { mutableStateOf(false) }
 
+    val borderModifier = Modifier.border(2.dp, Color.White)
+
+    val focusRequester = remember { FocusRequester() }
+
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
+            screenParameters.mainScreenViewModels.welcomeViewModel.get().downloadAndInstallApk(curr, curr.filesDir)
             /* val currentAppVersion = curr.packageManager.getPackageInfo(curr.packageName, 0)
             if (currentAppVersion.versionName != availableAppVersion) {
                 screenParameters.mainScreenViewModels.welcomeViewModel.downloadAndInstallApk(curr, curr.filesDir)
@@ -71,19 +77,23 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
             requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
+
+    LaunchedEffect(Unit) {
+        screenParameters.mainScreenViewModels.screenViewModel.get().isWelcomeScreen.value = true
+        focusRequester.requestFocus()
+    }
     
     DisposableEffect(Unit) {
         onDispose {
-            screenParameters.mainScreenViewModels.screenViewModel.isWelcomeScreen.value = false
+            screenParameters.mainScreenViewModels.screenViewModel.get().isWelcomeScreen.value = false
         }
     }
-
-    val borderModifier = Modifier.border(2.dp, Color.White)
 
     ScreenBackground(
         screenParameters,
         updatedContext.resources.getString(R.string.welcome_to_our_hotel),
         updatedContext,
+        null,
         {}
     ) {
         Text(
@@ -104,10 +114,12 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 modifier = (if (englishHovered) borderModifier else Modifier)
                     .onFocusChanged {
                         englishHovered = it.isFocused
-                    }.focusable()
+                    }
+                    .focusRequester(focusRequester)
+                    .focusable()
                     .clickable {
                         val newContext = setLocale(Locale.ENGLISH, updatedContext)
-                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
+                        screenParameters.mainScreenViewModels.applicationsViewModel.get().updateContext(
                             newContext
                         )
                         updatedContext = newContext
@@ -121,10 +133,11 @@ fun WelcomeScreen(screenParameters: ScreenParameters) {
                 modifier = (if (georgianHovered) borderModifier else Modifier)
                     .onFocusChanged {
                         georgianHovered = it.isFocused
-                    }.focusable()
+                    }
+                    .focusable()
                     .clickable {
                         val newContext = setLocale(Locale("ka"), updatedContext)
-                        screenParameters.mainScreenViewModels.applicationsViewModel.updateContext(
+                        screenParameters.mainScreenViewModels.applicationsViewModel.get().updateContext(
                             newContext
                         )
                         updatedContext = newContext

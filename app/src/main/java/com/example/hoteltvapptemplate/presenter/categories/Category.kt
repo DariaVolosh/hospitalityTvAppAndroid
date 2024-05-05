@@ -3,6 +3,7 @@ package com.example.hoteltvapptemplate.presenter.categories
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
@@ -42,9 +43,10 @@ fun Category(
 ) {
 
     var isHovering by remember { mutableStateOf(false) }
+    val border = if (isHovering) modifier.border(1.dp, Color.White) else modifier
 
     Row(
-        modifier = modifier
+        modifier = border
             .background(
                 if (isHovering) MaterialTheme.colorScheme.secondaryContainer
                 else MaterialTheme.colorScheme.primaryContainer

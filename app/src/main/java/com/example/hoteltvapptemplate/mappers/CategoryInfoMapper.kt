@@ -14,13 +14,13 @@ class CategoriesMapper @Inject constructor(
     override fun updateNamesMapper() {
         // mapper from category name to corresponding icon and composable screen name for navigation
         val newMapper = mapOf(
-            getString(R.string.tv_channels) to Pair(
-                R.drawable.tv_channels,
-                getString(R.string.tv_channels_screen)
-            ),
             getString(R.string.hotel_info) to Pair(
                 R.drawable.hotel_info,
                 getString(R.string.hotel_info_screen)
+            ),
+            getString(R.string.tv_channels) to Pair(
+                R.drawable.tv_channels,
+                getString(R.string.tv_channels_screen)
             ),
             getString(R.string.our_services) to Pair(
                 R.drawable.our_services,

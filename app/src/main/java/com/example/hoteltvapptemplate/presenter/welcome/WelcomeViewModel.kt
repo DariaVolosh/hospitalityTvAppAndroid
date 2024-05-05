@@ -21,7 +21,7 @@ class WelcomeViewModel @Inject constructor(
     val availableVersion = MutableLiveData<String>()
 
     init {
-        getAvailableAppVersion()
+        //getAvailableAppVersion()
     }
 
     fun downloadAndInstallApk(context: Context, filesDir: File) {
