@@ -43,7 +43,7 @@ fun CategoriesRow(
     Row(
         modifier = Modifier
             .animateContentSize()
-            .height(if (expanded == true || focused == true) 150.dp else 75.dp)
+            .height(if (expanded == true || focused == true) 120.dp else 65.dp)
             .fillMaxWidth()
             .onFocusChanged {
                 screenParameters.mainScreenViewModels.categoriesViewModel.isFocused.postValue(it.isFocused)
@@ -59,13 +59,9 @@ fun CategoriesRow(
                 modifier = if (expanded == true || focused == true) Modifier.weight(1f)
                            else Modifier.padding(horizontal = 8.dp),
             ) {
-                if (c == updatedContext.getString(R.string.tv_channels) || c == updatedContext.getString(R.string.youtube)) {
-                    screenParameters.mainScreenViewModels.applicationsViewModel.launchExternalApp(c)
-                } else {
-                    screenParameters.navigationHandler.navigateToCategory(
-                        categoriesViewModel.mapScreenName(c)
-                    )
-                }
+                screenParameters.navigationHandler.navigateToCategory(
+                    categoriesViewModel.mapScreenName(c)
+                )
             }
         }
     }

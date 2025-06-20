@@ -14,9 +14,9 @@ class CategoriesMapper @Inject constructor(
     override fun updateNamesMapper() {
         // mapper from category name to corresponding icon and composable screen name for navigation
         val newMapper = mapOf(
-            getString(R.string.youtube) to Pair(
-                R.drawable.youtube,
-                getString(R.string.youtube_screen)
+            getString(R.string.applications) to Pair(
+                R.drawable.applications,
+                getString(R.string.applications_screen)
             ),
             getString(R.string.tv_channels) to Pair(
                 R.drawable.tv_channels,

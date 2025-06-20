@@ -14,6 +14,30 @@ class CategoryNameToExternalAppPackage @Inject constructor(
 
     override fun updateNamesMapper() {
         val newMapper = mapOf(
+            getString(R.string.spotify) to
+                    listOf(
+                        Pair(
+                            getString(R.string.spotify_package_name),
+                            getString(R.string.spotify_main_activity_name)
+                        )
+                    ),
+
+            getString(R.string.netflix) to
+                    listOf(
+                        Pair(
+                            getString(R.string.netflix_package_name),
+                            getString(R.string.netflix_main_activity_name)
+                        )
+                    ),
+
+            getString(R.string.setanta) to
+                    listOf(
+                        Pair(
+                            getString(R.string.setanta_package_name),
+                            getString(R.string.setanta_main_activity_name)
+                        )
+                    ),
+
             getString(R.string.youtube) to
             listOf(
                 Pair(

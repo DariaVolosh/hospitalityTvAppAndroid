@@ -8,6 +8,10 @@
     <string name="georgian_language">Georgian language</string>
     <string name="date">11/02/2024</string>
     <string name="youtube">Youtube</string>
+    <string name="spotify">Spotify</string>
+    <string name="netflix">Netflix</string>
+    <string name="setanta">Setanta</string>
+    <string name="applications">Applications</string>
     <string name="tv_channels">Tv channels</string>
     <string name="our_services">Our services</string>
     <string name="weather">Weather</string>
@@ -16,7 +20,7 @@
     <string name="rooms">Rooms</string>
     <string name="variety_of_services">We provide a variety of services</string>
 
-    <string name="youtube_screen">youtubeScreen</string>
+    <string name="applications_screen">applicationsScreen</string>
     <string name="welcome_screen">welcomeScreen</string>
     <string name="tv_channels_screen">tvChannelsScreen</string>
     <string name="services_screen">servicesScreen</string>
@@ -108,4 +112,13 @@
 
     <string name="youtube_package_name">com.google.android.youtube</string>
     <string name="youtube_main_activity_name">com.google.android.apps.youtube.app.application.Shell_HomeActivity</string>
+
+    <string name="spotify_package_name">com.spotify.music</string>
+    <string name="spotify_main_activity_name">com.spotify.music.SpotifyMainActivity</string>
+
+    <string name="netflix_package_name">com.netflix.mediaclient</string>
+    <string name="netflix_main_activity_name">com.netflix.mediaclient.ui.launch.NetflixComLaunchActivity</string>
+
+    <string name="setanta_package_name">com.setanta.app</string>
+    <string name="setanta_main_activity_name"></string>
 </resources>
